@@ -82,6 +82,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
 .feature-item:hover{padding-left:8px}
 .feature-num{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.1em;margin-top:2px;flex-shrink:0;width:32px}
 .feature-title{font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px}
+
 .feature-desc{font-size:14px;font-weight:300;color:var(--text2);line-height:1.6}
  
 /* FOOTER */
@@ -118,7 +119,13 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
 /* RESPONSIVE */
 @media(max-width:1024px){
   .whyus-inner{grid-template-columns:1fr;gap:48px}
-  .whyus-visual{display:none}
+  .whyus-visual{
+    display:block;        /* Remove the display:none */
+    padding-bottom:30px;
+    overflow:visible;
+  }
+  .whyus-img{aspect-ratio:3/2;overflow:hidden}
+  .whyus-badge{bottom:-10px;right:10px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
 }
 @media(max-width:768px){
@@ -129,6 +136,27 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
 }
 @media(max-width:480px){
   .footer-bottom{flex-direction:column;text-align:center}
+}
+@media (max-width: 768px) {
+  .whyus-inner {
+    grid-template-columns: 1fr;  /* Stack vertically */
+    gap: 48px;
+  }
+
+  .whyus-visual {
+    padding-bottom: 30px; /* Space for the badge */
+    overflow: visible;    /* Don't clip the badge */
+  }
+
+  .whyus-img {
+    aspect-ratio: 3/2;   /* Less tall on mobile */
+    overflow: hidden;    /* Keep image contained */
+  }
+
+  .whyus-badge {
+    bottom: -10px;
+    right: 10px;         /* Pull it inward so it doesn't overflow screen */
+  }
 }
 </style>
 </head>
@@ -190,7 +218,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
       <a href="contact.html"        class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_contact">Contact</a>
     </nav>
     <div class="flex items-center gap-3 py-2">
-      <a href="#track-section" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+      <a href="track.html" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="3"/>
           <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
@@ -245,7 +273,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
 
   <!-- Track & Trace (mobile) -->
   <div class="px-5 py-4">
-    <a href="#" class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
+    <a href="track.html" class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="3"/>
         <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
