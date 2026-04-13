@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title data-i18n="navbar.companyName">Services</title>
+  <link rel="icon" href="assets/images/carlogo.png" type="image/png">
+  
+  <!-- Fonts: Syne + DM Sans (modern, bold) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+  <!-- AOS & Font Awesome -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* custom global overrides + smooth reveal animations */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: rgb(226, 171, 103);
+      color: #f5f5f0;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading, .nav-links, .section-title, .footer-col-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    :root {
+      --orange: #e85d04;
+      --orange-dark: #c44d00;
+      --orange-glow: rgba(232,93,4,0.2);
+      --dark: #0e0e0e;
+      --dark2: #161616;
+      --dark3: #1e1e1e;
+      --surface: #242424;
+      --text2: #a0a09a;
+      --border: rgba(255,255,255,0.07);
+      --radius-lg: 20px;
+      --transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    /* reveal animation classes (enhanced) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    /* ticker animation */
+    .ticker {
+      background: var(--orange);
+      padding: 12px 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 40px;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: white;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* custom hover effect for service cards (if needed) */
+    .service-card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .btn-glow {
+      transition: all 0.2s ease;
+    }
+    .btn-glow:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(232,93,4,0.4);
+    }
+    /* service section background polish */
+    .services-bg {
+      background: linear-gradient(145deg, #0f0500 0%, #000000 100%);
+    }
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e85d04;
+      border-radius: 10px;
+    }
+    /* image loading graceful */
+    img {
+      background-color: #1a1a1a;    
+    }
+  </style>
+</head>
+<body class="bg-[#0e0e0e]">
+
+<!-- TOP BAR -->
+<div class="border-b border-gray-100 px-6 py-2 bg-[#181818]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+
+    <!-- Logo -->
+    <a href="index.html">
+      <img src="assests/images/carlogo.png" alt="Company Logo" class="h-16 w-auto object-contain" />
+    </a>
+
+    <!-- Contact Info (hidden on mobile) -->
+    <div class="hidden md:flex items-center gap-6">
+
+      <!-- Phone -->
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <circle cx="12" cy="18" r="1" fill="#e85d04"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
+          <div class="text-sm text-gray-500">0234-8765-9110</div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <polyline points="2,5 12,13 22,5"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
+          <div class="text-sm text-gray-500">Info@assirko.com</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Hamburger (mobile only) — now in top bar -->
+    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()">
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+    </button>
+
+  </div>
+</div>
+
+<!-- NAV BAR (desktop only) -->
+<div class="hidden bg-orange-50   md:block border-b border-gray-100 px-6">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+    <!-- Nav Links -->
+    <nav class="flex items-center">
+      <a href="whoweare.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+      <a href="Services.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_services">Services</a>
+      <a href="Global.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+      <a href="industrySolutions.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+      <a href="knowlageHup.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+      <a href="getaquote.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+      <a href="career.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_careers">Careers</a>
+      <a href="contact.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_contact">Contact</a>
+    </nav>
+
+    <!-- Right: Track & Trace + Search -->
+    <div class="flex items-center gap-3 py-2">
+      <a href="#" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+        </svg>
+        Track &amp; Trace
+      </a>
+      
+      <div class="flex items-center gap-1 ml-2">
+        <button onclick="switchLanguage('en')" data-lang="en" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">EN</button>
+        <button onclick="switchLanguage('nl')" data-lang="nl" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">NL</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOBILE MENU (hidden by default) -->
+<div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
+
+  <!-- Mobile Contact Info -->
+  <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <circle cx="12" cy="18" r="1" fill="#e85d04"/>
+      </svg>
+      <div>
+        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">Phone</div>
+        <div class="text-xs text-gray-500">0234-8765-9110</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <polyline points="2,5 12,13 22,5"/>
+      </svg>
+      <div>
+        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">Email</div>
+        <div class="text-xs text-gray-500">7xthemehelp@gamil.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav Links -->
+  <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100" data-i18n="common.nav_home">Home</a>
+  <a href="whoweare.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+  <a href="Services.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_services">Services</a>
+  <a href="Global.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+  <a href="industrySolutions.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+  <a href="knowlageHup.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+  <a href="getaquote.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+  <a href="career.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_careers">Careers</a>
+  <a href="contact.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_contact">Contact</a>
+
+  <!-- Track & Trace (mobile) -->
+  <div class="px-5 py-4">
+    <a href="#" class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+      </svg>
+      Track &amp; Trace
+    </a>
+      <div class="flex items-center gap-1 ml-2">
+        <button onclick="switchLanguage('en')" data-lang="en" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">EN</button>
+        <button onclick="switchLanguage('nl')" data-lang="nl" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">NL</button>
+      </div>
+  </div>
+
+</div>
+ 
+
+
+
+<!--hero-->
+<section class="relative h-[60vh] min-h-[750px] w-full flex items-center justify-center overflow-hidden">
+  
+ <div class="absolute inset-0 z-0">
+
+  <!-- IMAGE -->
+  <img 
+    src="assests/images/slide3.jpg" 
+    alt="Transport"
+    class="w-full h-full object-cover"
+  />
+
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+</div>
+
+<!-- HERO TEXT IMPROVED -->
+<div class="relative z-10 container mx-auto px-6 text-center">
+
+  <!-- HEADLINE -->
+  <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+
+    <span class="block text-white"> <span data-i18n="services.hero_title_1">OUR</span> <span class="text-[#e85d04]" data-i18n="services.hero_title_2">SERVICES</span>
+    </span>
+
+
+  </h2>
+
+  
+
+ 
+  </div>
+
+</div>
+
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+</section>
+
+
+<!-- ========= OUR SERVICES SECTION (Enhanced with Title + Animations) ========= -->
+<div class="services-bg py-20 px-4 md:px-20 font-sans">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header with OUR SERVICES Title & animation -->
+    <div class="text-center mb-16" data-aos="zoom-in" data-aos-duration="800">
+      <span class="inline-flex items-center gap-2 bg-[#e85d04]/10 px-5 py-2 rounded-full border border-[#e85d04]/30 text-[#e85d04] text-sm font-bold uppercase tracking-wider">
+        <span data-i18n="services.main_tag">Excellence in motion</span>
+      </span>
+      <h2 class="text-5xl md:text-6xl font-black tracking-tight mt-6 font-heading bg-gradient-to-r from-white via-orange-200 to-[#e85d04] bg-clip-text text-transparent">
+        <span data-i18n="services.hero_title_1">Our</span> <span data-i18n="services.hero_title_2">Services</span>
+      </h2>
+      <div class="w-24 h-1 bg-[#e85d04] mx-auto mt-5 rounded-full"></div>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-lg">
+        <span data-i18n="services.main_desc">Comprehensive logistics ecosystem tailored for modern supply chains</span>
+      </p>
+    </div>
+
+    <div class="space-y-28">
+      
+      <!-- Courier Services -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-right">
+        <div class="w-full md:w-1/2 order-2 md:order-1">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_courier_title">Courier Services</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_courier_desc">Fast, secure, and reliable delivery of documents and parcels. Same-day or next-day delivery with full tracking and professional handling — nationwide coverage.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_courier_feature">Real-time updates · insured parcels</span>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-2">
+          <img src="assests/images/pexels-kampus-7844012.jpg" alt="Courier" class="w-full h-[350px] object-cover shadow-2xl rounded-xl transition-transform duration-500 hover:scale-[1.02]" onerror="this.src='https://placehold.co/600x400?text=Courier+Service'">
+        </div>
+      </div>
+      
+      <!-- Express Delivery -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-left">
+        <div class="w-full md:w-1/2">
+          <img src="assests/images/express delivery.jpeg" alt="Express" class="w-full h-[350px] object-cover shadow-2xl rounded-xl transition-transform duration-500 hover:scale-[1.02]" onerror="this.src='https://placehold.co/600x400?text=Express+Delivery'">
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_express_title">Express Delivery</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_express_desc">Urgent shipment? Our express service ensures immediate pickup and direct delivery without delays. Priority handling 24/7 dedicated fleet.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-bolt text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_express_feature">Time-critical logistics</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Storage & Logistics -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-right">
+        <div class="w-full md:w-1/2 order-2 md:order-1">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_storage_title">Storage & Logistics</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_storage_desc">Smart warehousing with inventory management, cross-docking, and just-in-time distribution. Secure facilities with 24/7 surveillance.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-warehouse text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_storage_feature">6 regional hubs</span>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-2">
+          <img src="assests/images/pexels-tiger-lily-4481259.jpg" alt="Storage" class="w-full h-[350px] object-cover shadow-2xl rounded-xl" onerror="this.src='https://placehold.co/600x400?text=Storage+Facility'">
+        </div>
+      </div>
+      
+      <!-- National Distribution -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-left">
+        <div class="w-full md:w-1/2">
+          <img src="assests/images/pexels-jan-van-der-wolf-11680885-33537946.jpg" alt="National" class="w-full h-[350px] object-cover shadow-2xl rounded-xl" onerror="this.src='https://placehold.co/600x400?text=National+Distribution'">
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_national_title">National Distribution</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_national_desc">Efficient distribution across the Netherlands with optimized routes and reliable delivery times. Full visibility through digital control tower.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-truck text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_national_feature">Digital control tower</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- International Shipping -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-right">
+        <div class="w-full md:w-1/2 order-2 md:order-1">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_international_title">International Shipping</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_international_desc">Seamless cross-border shipping across Europe with customs support and fast transit times. Air, sea & rail combined expertise.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-globe text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_international_feature">Air · Sea · Rail</span>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-2">
+          <img src="assests/images/is.jpeg" alt="International" class="w-full h-[350px] object-cover shadow-2xl rounded-xl" onerror="this.src='https://placehold.co/600x400?text=International+Shipping'">
+        </div>
+      </div>
+      
+      <!-- Car Transport -->
+      <div class="flex flex-col md:flex-row items-center gap-12" data-aos="fade-left">
+        <div class="w-full md:w-1/2">
+          <img src="assests/images/Car Transport.jpg" alt="Car Transport" class="w-full h-[350px] object-cover shadow-2xl rounded-xl" onerror="this.src='https://placehold.co/600x400?text=Car+Transport'">
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-3xl font-bold text-[#e85d04] mb-4 font-heading">
+            <span data-i18n="services.service_car_title">Car Transport</span>
+          </h3>
+          <p class="text-white leading-relaxed mb-6">
+            <span data-i18n="services.service_car_desc">Safe and professional vehicle transport for individuals and businesses across Europe. Enclosed carriers, real-time tracking, and full insurance coverage.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-car text-[#e85d04]"></i>
+            <span class="text-sm text-gray-400" data-i18n="services.service_car_feature">Fully insured · enclosed carriers</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- FOOTER (enhanced) -->
+  <footer class="bg-[#161616] border-t border-white/10 pt-20 pb-10 px-4">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <div><img src="assests/images/carlogo.png" class="h-14 mb-5" onerror="this.src='https://placehold.co/120x60?text=AA'"><p class="text-gray-400 text-sm">Global logistics partner delivering precision, speed and transparency since 1996.</p><div class="flex gap-3 mt-6"><a href="#" class="w-9 h-9 bg-[#242424] rounded-full flex items-center justify-center hover:bg-[#e85d04] transition"><i class="fab fa-linkedin-in text-xs"></i></a><a href="#" class="w-9 h-9 bg-[#242424] rounded-full flex items-center justify-center hover:bg-[#e85d04] transition"><i class="fab fa-twitter text-xs"></i></a><a href="#" class="w-9 h-9 bg-[#242424] rounded-full flex items-center justify-center hover:bg-[#e85d04] transition"><i class="fab fa-facebook-f text-xs"></i></a></div></div>
+      <div><h4 class="font-heading font-bold text-lg mb-5">Services</h4><ul class="space-y-2 text-gray-400 text-sm"><li>Air Freight</li><li>Ocean Freight</li><li>Road Transport</li><li>Rail Logistics</li><li>Warehousing</li></ul></div>
+      <div><h4 class="font-heading font-bold text-lg mb-5">Company</h4><ul class="space-y-2 text-gray-400 text-sm"><li>Who We Are</li><li>Sustainability</li><li>Global Network</li><li>Careers</li><li>Newsroom</li></ul></div>
+      <div><h4 class="font-heading font-bold text-lg mb-5">Contact</h4><ul class="space-y-2 text-gray-400 text-sm"><li><i class="fas fa-phone-alt mr-2 text-[#e85d04]"></i> +31 234 876 59110</li><li><i class="fas fa-envelope mr-2 text-[#e85d04]"></i> hello@aasirko.com</li><li><i class="fas fa-map-marker-alt mr-2 text-[#e85d04]"></i> Rotterdam, Netherlands</li></ul></div>
+    </div>
+    <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs">© 2025 AA-SIRKO Logistics. All rights reserved. | Privacy | Terms</div>
+  </footer>
+
+  <script src="animations.js"></script>
+  <script src="languageSwitcher.js"></script>
+  <script src="js.js"></script>
+  <noscript>Your browser does not support JavaScript, but animations are gracefully degraded.</noscript>
+</body>
+</html>
