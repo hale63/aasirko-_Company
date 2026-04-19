@@ -475,54 +475,50 @@
 
 <body class="bg-[--dark]">
 
-  <!-- TOP BAR -->
-  <div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
-    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
-
-      <a href="index.html">
-        <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain" />
-      </a>
-
-      <!-- Contact Info (desktop) -->
-      <div class="hidden md:flex items-center gap-6">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="5" y="2" width="14" height="20" rx="2" />
-            <circle cx="12" cy="18" r="1" fill="#e85d04" />
-          </svg>
-          <div>
-            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">
-              Phone Number</div>
-            <div class="text-sm text-gray-500">+31 6 8611 0373</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="2" y="5" width="20" height="14" rx="2" />
-            <polyline points="2,5 12,13 22,5" />
-          </svg>
-          <div>
-            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">
-              Email Address</div>
-            <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
-          </div>
+<!-- TOP BAR -->
+<div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+ 
+    <a href="index.html">
+      <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain" />
+    </a>
+ 
+    <!-- Contact Info (desktop) -->
+    <div class="hidden md:flex items-center gap-6">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <circle cx="12" cy="18" r="1" fill="#e85d04"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
+          <div class="text-sm text-gray-500">+31 6 8611 0373</div>
         </div>
       </div>
-
-      <!-- Hamburger (mobile) -->
-      <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-      </button>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <polyline points="2,5 12,13 22,5"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
+          <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
+        </div>
+      </div>
     </div>
+ 
+    <!-- Hamburger (mobile) -->
+    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+    </button>
   </div>
+</div>
 
-  <!-- NAV BAR (desktop only) -->
-  <div class="hidden bg-orange-50   md:block border-b border-gray-100 px-6">
+  <!-- ── NAV BAR (desktop) ── -->
+  <div class="hidden md:block bg-orange-50 border-b border-gray-100 px-6">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-
-      <!-- Nav Links -->
       <nav class="flex items-center">
         <a href="whoweare.html"
           class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
@@ -549,8 +545,6 @@
           class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
           data-i18n="common.nav_contact">Contact</a>
       </nav>
-
-      <!-- Right: Track & Trace + Search -->
       <div class="flex items-center gap-3 py-2">
         <a href="track.html"
           class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
@@ -561,7 +555,6 @@
           </svg>
           Track &amp; Trace
         </a>
-
         <div class="flex items-center gap-1 ml-2">
           <button onclick="switchLanguage('en')" data-lang="en"
             class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
@@ -571,14 +564,11 @@
             style="min-width:28px">NL</button>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- MOBILE MENU (hidden by default) -->
+  <!-- ── MOBILE MENU ── -->
   <div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
-
-    <!-- Mobile Contact Info -->
     <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
       <div class="flex items-center gap-2">
         <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
@@ -586,9 +576,9 @@
           <circle cx="12" cy="18" r="1" fill="#e85d04" />
         </svg>
         <div>
-          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">
-            Phone</div>
-          <div class="text-xs text-gray-500">0234-8765-9110</div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">Phone
+          </div>
+          <div class="text-xs text-gray-500">+31 6 8611 0373</div>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -597,14 +587,12 @@
           <polyline points="2,5 12,13 22,5" />
         </svg>
         <div>
-          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">
-            Email</div>
-          <div class="text-xs text-gray-500">7xthemehelp@gamil.com</div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">Email
+          </div>
+          <div class="text-xs text-gray-500">info@assirko.com</div>
         </div>
       </div>
     </div>
-
-    <!-- Mobile Nav Links -->
     <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100"
       data-i18n="common.nav_home">Home</a>
     <a href="whoweare.html"
@@ -631,11 +619,9 @@
     <a href="contact.html"
       class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
       data-i18n="common.nav_contact">Contact</a>
-
-    <!-- Track & Trace (mobile) -->
-    <div class="px-5 py-4">
+    <div class="px-5 py-4 flex flex-col gap-3">
       <a href="track.html"
-        class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
+        class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="3" />
           <path
@@ -643,7 +629,7 @@
         </svg>
         Track &amp; Trace
       </a>
-      <div class="flex items-center gap-1 ml-2">
+      <div class="flex items-center gap-1">
         <button onclick="switchLanguage('en')" data-lang="en"
           class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
           style="min-width:28px">EN</button>
@@ -652,9 +638,7 @@
           style="min-width:28px">NL</button>
       </div>
     </div>
-
   </div>
-
 
 
 

@@ -358,140 +358,129 @@ nav.main-nav{display:flex;align-items:center;gap:2px}
   </div>
 </div>
 
-<!-- NAV BAR (desktop only) -->
-<div class="hidden bg-orange-50   md:block border-b border-gray-100 px-6">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <!-- ── NAV BAR (desktop) ── -->
+  <div class="hidden md:block bg-orange-50 border-b border-gray-100 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <nav class="flex items-center">
+        <a href="whoweare.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+        <a href="Services.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_services">Services</a>
+        <a href="Global.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+        <a href="industrySolutions.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+        <a href="knowlageHup.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+        <a href="getaquote.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+        <a href="career.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_careers">Careers</a>
+        <a href="contact.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3 py-2">
+        <a href="track.html"
+          class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+          </svg>
+          Track &amp; Trace
+        </a>
+        <div class="flex items-center gap-1 ml-2">
+          <button onclick="switchLanguage('en')" data-lang="en"
+            class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+            style="min-width:28px">EN</button>
+          <button onclick="switchLanguage('nl')" data-lang="nl"
+            class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+            style="min-width:28px">NL</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Nav Links -->
-    <nav class="flex items-center">
-      <a href="whoweare.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
-      <a href="Services.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_services">Services</a>
-      <a href="Global.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
-      <a href="industrySolutions.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
-      <a href="knowlageHup.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
-      <a href="getaquote.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
-      <a href="career.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_careers">Careers</a>
-      <a href="contact.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_contact">Contact</a>
-    </nav>
-
-    <!-- Right: Track & Trace + Search -->
-    <div class="flex items-center gap-3 py-2">
-      <a href="#" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+  <!-- ── MOBILE MENU ── -->
+  <div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
+    <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2" />
+          <circle cx="12" cy="18" r="1" fill="#e85d04" />
+        </svg>
+        <div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">Phone
+          </div>
+          <div class="text-xs text-gray-500">+31 6 8611 0373</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2" />
+          <polyline points="2,5 12,13 22,5" />
+        </svg>
+        <div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">Email
+          </div>
+          <div class="text-xs text-gray-500">info@assirko.com</div>
+        </div>
+      </div>
+    </div>
+    <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100"
+      data-i18n="common.nav_home">Home</a>
+    <a href="whoweare.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+    <a href="Services.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_services">Services</a>
+    <a href="Global.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+    <a href="industrySolutions.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+    <a href="knowlageHup.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+    <a href="getaquote.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+    <a href="career.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_careers">Careers</a>
+    <a href="contact.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_contact">Contact</a>
+    <div class="px-5 py-4 flex flex-col gap-3">
+      <a href="track.html"
+        class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
         </svg>
         Track &amp; Trace
       </a>
-      
-      <div class="flex items-center gap-1 ml-2">
-        <button onclick="switchLanguage('en')" data-lang="en" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">EN</button>
-        <button onclick="switchLanguage('nl')" data-lang="nl" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">NL</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- MOBILE MENU (hidden by default) -->
-<div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
-
-  <!-- Mobile Contact Info -->
-  <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
-    <div class="flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <circle cx="12" cy="18" r="1" fill="#e85d04"/>
-      </svg>
-      <div>
-        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">Phone</div>
-        <div class="text-xs text-gray-500">0234-8765-9110</div>
-      </div>
-    </div>
-    <div class="flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-        <rect x="2" y="5" width="20" height="14" rx="2"/>
-        <polyline points="2,5 12,13 22,5"/>
-      </svg>
-      <div>
-        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">Email</div>
-        <div class="text-xs text-gray-500">7xthemehelp@gamil.com</div>
+      <div class="flex items-center gap-1">
+        <button onclick="switchLanguage('en')" data-lang="en"
+          class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+          style="min-width:28px">EN</button>
+        <button onclick="switchLanguage('nl')" data-lang="nl"
+          class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+          style="min-width:28px">NL</button>
       </div>
     </div>
   </div>
-
-  <!-- Mobile Nav Links -->
-  <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100" data-i18n="common.nav_home">Home</a>
-  <a href="whoweare.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
-  <a href="Services.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_services">Services</a>
-  <a href="Global.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
-  <a href="industrySolutions.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
-  <a href="knowlageHup.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
-  <a href="getaquote.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
-  <a href="career.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_careers">Careers</a>
-  <a href="contact.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_contact">Contact</a>
-
-  <!-- Track & Trace (mobile) -->
-  <div class="max-w-6xl mx-auto">
-    
-    <div class="relative bg-[#1a1a1a] rounded-[32px] p-8 md:p-16 border border-white/5 overflow-hidden shadow-2xl">
-      
-      <div class="absolute top-0 right-0 w-64 h-24 bg-orange-600/10 blur-[100px] -z-0"></div>
-
-      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-        
-        <div class="flex-1 w-full">
-          <div class="flex items-center gap-3 mb-8">
-            <span class="w-8 h-[2px] bg-[#e85d04]"></span>
-            <span class="text-[#e85d04] font-bold uppercase tracking-[0.2em] text-[10px]">
-              <span data-i18n="index.tracking_tag">Live Tracking</span>
-            </span>
-          </div>
-
-          <h2 class="text-white text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight uppercase" style="font-family: 'Syne', sans-serif; letter-spacing: -0.02em;">
-            <span data-i18n="index.tracking_title_1">Track Your Shipment</span><br class="hidden md:block" /> 
-            <span class="opacity-90"><span data-i18n="index.tracking_title_2">in Real Time</span></span>
-          </h2>
-
-          <p class="text-gray-400 text-sm md:text-base mb-10 max-w-xl font-light leading-relaxed">
-            <span data-i18n="index.tracking_desc">Enter your tracking number below to get instant status updates, location data, and estimated delivery windows.</span>
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-stretch gap-4 max-w-2xl">
-            <div class="relative flex-1">
-              <input 
-                type="text" 
-                data-i18n-placeholder="index.tracking_placeholder"
-                placeholder="Enter tracking number (e.g. CX-2024-000123)" 
-                class="w-full bg-[#0d0d0d] border border-white/10 text-gray-300 rounded-xl px-6 py-4 outline-none focus:border-orange-500/50 transition-all text-sm placeholder:text-gray-600"
-              />
-            </div>
-            <button class="bg-[#e85d04] hover:bg-[#ff6d00] text-white px-10 py-4 rounded-xl font-extrabold uppercase text-xs tracking-widest transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg shadow-orange-900/20">
-              <span data-i18n="index.tracking_btn">Track Now</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="hidden lg:block w-72">
-          <div class="bg-[#222222] border border-white/5 rounded-3xl p-8 flex flex-col items-center text-center shadow-inner">
-            <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group">
-              <i class="fa-solid fa-satellite-dish text-[#e85d04] text-2xl animate-pulse"></i>
-            </div>
-            <h4 class="text-white font-bold text-sm leading-tight mb-2">
-              <span data-i18n="index.tracking_live_title">Live Shipment<br/>Intelligence</span>
-            </h4>
-            <div class="flex items-center gap-2 text-[10px] text-gray-500 font-medium uppercase tracking-tighter">
-              <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span>
-              <span data-i18n="index.tracking_live_sub">Updated every 60 seconds</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-</div>
  
 
 

@@ -569,43 +569,46 @@
 
 <body>
 
-  <!-- ── TOP BAR ── -->
-  <div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
-    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
-      <a href="index.html">
-        <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain">
-      </a>
-      <div class="hidden md:flex items-center gap-6">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="5" y="2" width="14" height="20" rx="2" />
-            <circle cx="12" cy="18" r="1" fill="#e85d04" />
-          </svg>
-          <div>
-            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">
-              Phone Number</div>
-            <div class="text-sm text-gray-500">+31 6 8611 0373</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect x="2" y="5" width="20" height="14" rx="2" />
-            <polyline points="2,5 12,13 22,5" />
-          </svg>
-          <div>
-            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">
-              Email Address</div>
-            <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
-          </div>
+<!-- TOP BAR -->
+<div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+ 
+    <a href="index.html">
+      <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain" />
+    </a>
+ 
+    <!-- Contact Info (desktop) -->
+    <div class="hidden md:flex items-center gap-6">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <circle cx="12" cy="18" r="1" fill="#e85d04"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
+          <div class="text-sm text-gray-500">+31 6 8611 0373</div>
         </div>
       </div>
-      <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-        <span class="block w-6 h-0.5 bg-white transition-all"></span>
-      </button>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <polyline points="2,5 12,13 22,5"/>
+        </svg>
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
+          <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
+        </div>
+      </div>
     </div>
+ 
+    <!-- Hamburger (mobile) -->
+    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all"></span>
+    </button>
   </div>
+</div>
 
   <!-- ── NAV BAR (desktop) ── -->
   <div class="hidden md:block bg-orange-50 border-b border-gray-100 px-6">
