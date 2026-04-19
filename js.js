@@ -176,7 +176,9 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 
   
-//1. Initialize Map (Start focused on Western Europe)
+// Map initialization — only runs on pages that have a #map element
+if (document.getElementById('map')) {
+  //1. Initialize Map (Start focused on Western Europe)
   const map = L.map('map').setView([50.0, 10.0], 5);
 
   // 2. Add Light-Themed Tiles (Matches the clean look)
@@ -208,11 +210,12 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   });
 
   // 6. Function to change view when button is clicked
-  function zoomTo(lat, lng, zoomLevel) {
+  window.zoomTo = function(lat, lng, zoomLevel) {
     map.flyTo([lat, lng], zoomLevel, {
       duration: 1.5 // Smooth animation in seconds
     });
-  }
+  };
+}
 
 // Mobile menu toggle
   function toggleMenu() {
@@ -231,3 +234,121 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     el.classList.add('active-tab');
     el.classList.remove('bg-[#0a0c10]', 'text-gray-400');
   }
+
+
+  //industry solutions page
+
+   const cardData = {
+    ecommerce: {
+      tag: { en: "E-Commerce", nl: "E-Commerce" },
+      title: { en: "E-Commerce Logistics", nl: "E-Commerce Logistiek" },
+      desc: {
+        en: "We power the full e-commerce supply chain — from warehouse to your customer's doorstep. With our advanced fulfillment network and last-mile delivery solutions, you can scale your online business with confidence.",
+        nl: "Wij ondersteunen de volledige e-commerce supply chain — van magazijn tot aan de voordeur van uw klant. Met ons geavanceerde fulfillmentnetwerk en last-mile bezorgoplossingen kunt u uw online bedrijf met vertrouwen opschalen."
+      },
+      points: [
+        { icon: "✅", text: { en: "Same-day & next-day delivery options", nl: "Same-day & next-day bezorgopties" } },
+        { icon: "✅", text: { en: "Multi-warehouse fulfillment & inventory sync", nl: "Multi-warehouse fulfillment & voorraadsynchronisatie" } },
+        { icon: "✅", text: { en: "Hassle-free returns management", nl: "Probleemloze retourverwerking" } },
+        { icon: "✅", text: { en: "Real-time shipment tracking portals", nl: "Realtime zendingvolgsystemen" } },
+        { icon: "✅", text: { en: "API integration with major e-commerce platforms", nl: "API-integratie met grote e-commerceplatformen" } }
+      ]
+    },
+    automotive: {
+      tag: { en: "Automotive", nl: "Automotive" },
+      title: { en: "Automotive Transport", nl: "Autotransport" },
+      desc: {
+        en: "Specialized logistics for the automotive sector — from brand-new vehicles to high-value spare parts. Our dedicated fleet and trained handlers ensure your cargo arrives intact, on time, every time.",
+        nl: "Gespecialiseerde logistiek voor de automotive sector — van gloednieuwe voertuigen tot hoogwaardige onderdelen. Ons toegewijd wagenpark en getrainde medewerkers zorgen ervoor dat uw lading intact en op tijd aankomt."
+      },
+      points: [
+        { icon: "✅", text: { en: "Open & enclosed vehicle transport", nl: "Open & gesloten voertuigtransport" } },
+        { icon: "✅", text: { en: "Damage-free loading & securing systems", nl: "Schadevrij laden & borgingssystemen" } },
+        { icon: "✅", text: { en: "Bulk fleet delivery management", nl: "Bulkvloot leveringsbeheer" } },
+        { icon: "✅", text: { en: "Customs clearance & documentation support", nl: "Douaneafhandeling & documentatieondersteuning" } },
+        { icon: "✅", text: { en: "Pre & post-delivery condition reporting", nl: "Conditierapportage voor & na levering" } }
+      ]
+    },
+    healthcare: {
+      tag: { en: "Retail & Wholesale", nl: "Retail & Groothandel" },
+      title: { en: "Retail & Wholesale", nl: "Retail & Groothandel" },
+      desc: {
+        en: "Reliable distribution for retail and wholesale. Our network ensures your goods reach stores and distribution centers on time, every time.",
+        nl: "Betrouwbare distributie voor retail en groothandel. Ons netwerk zorgt ervoor dat uw goederen op tijd bij winkels en distributiecentra aankomen."
+      },
+      points: [
+        { icon: "✅", text: { en: "Store replenishment & scheduled deliveries", nl: "Winkelaanvulling & geplande leveringen" } },
+        { icon: "✅", text: { en: "Pallet & parcel distribution", nl: "Pallet- & pakkettendistributie" } },
+        { icon: "✅", text: { en: "Cross-docking & consolidation services", nl: "Cross-docking & consolidatiediensten" } },
+        { icon: "✅", text: { en: "Returns & reverse logistics", nl: "Retourzendingen & reverse logistics" } },
+        { icon: "✅", text: { en: "Seasonal peak capacity management", nl: "Capaciteitsbeheer bij seizoenspieken" } }
+      ]
+    },
+    manufacturing: {
+      tag: { en: "B2B", nl: "B2B" },
+      title: { en: "B2B Logistics", nl: "B2B Logistiek" },
+      desc: {
+        en: "Dedicated logistics solutions for businesses. We handle everything from raw materials to finished goods, with just-in-time delivery and flexible scheduling.",
+        nl: "Toegewijde logistieke oplossingen voor bedrijven. Wij verzorgen alles van grondstoffen tot eindproducten, met just-in-time levering en flexibele planning."
+      },
+      points: [
+        { icon: "✅", text: { en: "Dedicated fleet & driver options", nl: "Toegewijd wagenpark & chauffeuropties" } },
+        { icon: "✅", text: { en: "JIT scheduling & production sync", nl: "JIT-planning & productiesynchronisatie" } },
+        { icon: "✅", text: { en: "Cross-docking & direct line-feed services", nl: "Cross-docking & directe lijnvoedingsdiensten" } },
+        { icon: "✅", text: { en: "Oversized & heavy-load transport", nl: "Overmaats & zwaar transport" } },
+        { icon: "✅", text: { en: "Industrial packaging & crating solutions", nl: "Industriële verpakkings- & kratten-oplossingen" } }
+      ]
+    },
+    tech: {
+      tag: { en: "B2C", nl: "B2C" },
+      title: { en: "B2C Delivery", nl: "B2C Bezorging" },
+      desc: {
+        en: "Fast and flexible delivery for private customers. Climate-controlled environments and careful handling protect your most valuable shipments in transit.",
+        nl: "Snelle en flexibele bezorging voor particuliere klanten. Klimaatgecontroleerde omgevingen en zorgvuldige behandeling beschermen uw waardevolste zendingen tijdens transport."
+      },
+      points: [
+        { icon: "✅", text: { en: "Same-day & next-day home delivery", nl: "Same-day & next-day thuisbezorging" } },
+        { icon: "✅", text: { en: "Flexible delivery time windows", nl: "Flexibele bezorgtijdvensters" } },
+        { icon: "✅", text: { en: "Real-time tracking & notifications", nl: "Realtime tracking & notificaties" } },
+        { icon: "✅", text: { en: "Careful handling of fragile items", nl: "Zorgvuldige behandeling van fragiele items" } },
+        { icon: "✅", text: { en: "Easy returns & pickup service", nl: "Eenvoudige retourzendingen & ophaalservice" } }
+      ]
+    }
+  };
+
+  /** Get current language (reads same key as languageSwitcher.js) */
+  function _getModalLang() {
+    return localStorage.getItem('aasirko_lang') || 'en';
+  }
+
+  function openModal(key) {
+    const c = cardData[key];
+    if (!c) return;
+    const lang = _getModalLang();
+
+    document.getElementById('modal-tag').textContent   = c.tag[lang] || c.tag['en'];
+    document.getElementById('modal-title').textContent = c.title[lang] || c.title['en'];
+    document.getElementById('modal-desc').textContent  = c.desc[lang] || c.desc['en'];
+
+    const ul = document.getElementById('modal-points');
+    ul.innerHTML = c.points.map(p => `
+      <li class="flex items-start gap-2 text-gray-400 text-sm">
+        <span class="text-base leading-snug">${p.icon}</span>
+        <span>${p.text[lang] || p.text['en']}</span>
+      </li>
+    `).join('');
+
+    const overlay = document.getElementById('modal-overlay');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeModal() {
+    document.getElementById('modal-overlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+ 
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });

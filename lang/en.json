@@ -16,32 +16,30 @@
     "track_and_trace": "Track & Trace",
     "footer_about": "Global logistics partner delivering precision, speed and transparency across every link of your supply chain since 1996.",
     "footer_services_title": "Services",
-    "footer_air_freight": "Air Freight",
-    "footer_ocean_freight": "Ocean Freight",
-    "footer_road_transport": "Road Transport",
-    "footer_rail_logistics": "Rail Logistics",
-    "footer_warehousing": "Warehousing",
-    "footer_customs_clearance": "Customs Clearance",
+    "footer_air_freight": "Courier services",
+    "footer_ocean_freight": "Express delivery",
+    "footer_road_transport": "National distribution",
+    "footer_rail_logistics": "International shipping",
+    "footer_warehousing": "Car transport",
+    "footer_customs_clearance": "Storage & logistics",
     "footer_company_title": "Company",
     "footer_who_we_are": "Who We Are",
-    "footer_leadership_team": "Leadership Team",
-    "footer_global_network": "Global Network",
-    "footer_sustainability": "Sustainability",
-    "footer_newsroom": "Newsroom",
+    "footer_leadership_team": "services",
+    "footer_global_network": "Global network",
+    "footer_sustainability": "Industry solutions",
+    "footer_newsroom": "Knowledge hub",
     "footer_careers": "Careers",
     "footer_contact_title": "Contact",
     "footer_get_a_quote": "Get a Quote",
     "footer_track_shipment": "Track Shipment",
     "footer_customer_support": "Customer Support",
-    "footer_partner_program": "Partner Program",
     "footer_knowledge_hub": "Knowledge Hub",
-    "footer_legal_compliance": "Legal & Compliance",
-    "footer_copyright": "© 2025 CargoEx Global Logistics. All rights reserved.",
+    "footer_legal_compliance": "",
+    "footer_copyright": "© 2010 AA-SİRKO Global Logistics. All rights reserved.",
     "footer_privacy_policy": "Privacy Policy",
     "footer_terms_of_service": "Terms of Service",
     "footer_cookie_settings": "Cookie Settings"
   },
-
   "index": {
     "hero_line1": "Driven by",
     "hero_line1_highlight": "Speed",
@@ -63,17 +61,15 @@
     "feat4_title": "Future-Driven Vision",
     "stat_deliveries": "Deliveries",
     "stat_uptime": "Uptime",
-
     "ticker_air_freight": "Air Freight",
     "ticker_ocean_freight": "Ocean Freight",
     "ticker_road_transport": "Road Transport",
     "ticker_customs": "Customs",
     "ticker_warehousing": "Warehousing",
     "ticker_express_delivery": "Express Delivery",
-
     "services_tag": "What We Deliver",
-    "services_title_1": "Comprehensive",
-    "services_title_2": "Logistics Services",
+    "services_title_1": "Our",
+    "services_title_2": " Services",
     "services_desc": "From air freight to last-mile delivery, we offer tailored solutions that move your business forward with precision and reliability.",
     "service_air_title": "Air Freight",
     "service_air_desc": "Priority air cargo solutions with time-definite delivery guarantees across 180+ destinations worldwide.",
@@ -88,7 +84,6 @@
     "service_customs_title": "Customs Clearance",
     "service_customs_desc": "Expert customs brokerage ensuring compliant, fast clearance at every border crossing point.",
     "service_learn_more": "Learn More",
-
     "whyus_tag": "Why Choose Us",
     "whyus_title_1": "Built for",
     "whyus_title_2": "Excellence",
@@ -102,7 +97,6 @@
     "feature_3_desc": "Named account managers with 24/7 availability, proactive issue resolution, and monthly performance reviews.",
     "feature_4_title": "Certified Operations",
     "feature_4_desc": "ISO 9001, GDP, AEO certified operations ensuring the highest standards of quality and security throughout.",
-
     "numbers_tag": "By The Numbers",
     "numbers_title_1": "Our Impact in",
     "numbers_title_2": "Numbers",
@@ -115,11 +109,9 @@
     "number_3_label": "On-Time Rate",
     "number_4_value": "500+",
     "number_4_label": "Team Members",
-
     "testimonials_tag": "Client Stories",
     "testimonials_title_1": "What Our Clients",
     "testimonials_title_2": "Say",
-
     "tracking_tag": "Live Tracking",
     "tracking_title_1": "Track Your Shipment",
     "tracking_title_2": "in Real Time",
@@ -130,13 +122,14 @@
     "tracking_live_sub": "Updated every 60 seconds"
   },
   "contact": {
-    "hero_title_1": "GET IN",
-    "hero_title_2": "TOUCH",
-    "form_tag": "Contact Us",
+    "hero_title_1": "CONTACT",
+    "hero_title_2": "US",
+    "form_tag": "Get In Touch",
     "form_title_1": "Contact",
-    "form_title_2": "us",
+    "form_title_2": "Us",
+    "form_firstname_placeholder": "First Name",
+    "form_lastname_placeholder": "Last Name",
     "form_name_label": "Full Name",
-    "form_name_placeholder": "Your full name",
     "form_email_label": "Email Address",
     "form_email_placeholder": "your@email.com",
     "form_phone_label": "Phone Number",
@@ -151,118 +144,109 @@
     "form_message_placeholder": "Tell us about your logistics needs...",
     "form_submit": "Send Message",
     "info_title": "Contact Information",
-    "info_desc": "Get in touch with our team — we're available around the clock.",
-    "info_address_label": "Head Office",
+    "info_desc": "We are always looking for ways to improve our services. Reach out and let us know how we can help you.",
+    "info_address_label": "Headquarters",
     "info_address_value": "Keizersgracht 520, 1017 EK Amsterdam, Netherlands",
     "info_phone_label": "Phone",
     "info_email_label": "Email",
-    "info_hours_label": "Opening Hours",
+    "info_hours_label": "Business Hours",
     "info_hours_value": "Mon — Fri: 08:00 — 18:00 CET",
-    "map_title": "Find Us"
-},
-
-
-"services": {
+    "map_title": "We Are Here",
+    "map_view_link": "View →",
+    "company_kvk_label": "KVK Number",
+    "company_type_label": "Type",
+    "company_address_label": "Address",
+    "company_phone_label": "Phone",
+    "company_aasirko_name": "AASiRKO Global B.V.",
+    "company_aasirko_kvk": "98187120",
+    "company_aasirko_type": "Private Limited Company",
+    "company_aasirko_address": "Edisonbaan 23, 3439MN Nieuwegein",
+    "company_aasirko_phone": "+31 6 8611 0373",
+    "company_aasirko_email": "info@aasirko.com",
+    "company_parent_label": "Parent Company",
+    "company_parent_name": "TwinkNL Trade & Logistics B.V.",
+    "company_parent_kvk": "74785850",
+    "company_parent_type": "Private Limited Company · Legal Entity",
+    "company_parent_email": "info@twinknl.com"
+  },
+  "services": {
     "hero_title_1": "Our",
     "hero_title_2": "Services",
     "main_tag": "Excellence in motion",
     "main_title_1": "End-to-End Logistics",
     "main_title_2": "Solutions",
     "main_desc": "Comprehensive logistics ecosystem tailored for modern supply chains",
-    
     "service_courier_title": "Courier Services",
-    "service_courier_desc": "Fast, secure, and reliable delivery of documents and parcels. Same-day or next-day delivery with full tracking and professional handling — nationwide coverage.",
+    "service_courier_desc": "Fast, secure, and reliable delivery of documents and packages. We offer both same-day and next-day delivery, with full tracking and professional handling — nationwide coverage.",
     "service_courier_feature": "Real-time updates · insured parcels",
-    
     "service_express_title": "Express Delivery",
-    "service_express_desc": "Urgent shipment? Our express service ensures immediate pickup and direct delivery without delays. Priority handling 24/7 dedicated fleet.",
+    "service_express_desc": "Do you have an urgent shipment? Our express service guarantees immediate pickup and delivery without delay. With priority handling, 24/7 availability, and a dedicated fleet.",
     "service_express_feature": "Time-critical logistics",
-    
     "service_storage_title": "Storage & Logistics",
     "service_storage_desc": "Smart warehousing with inventory management, cross-docking, and just-in-time distribution. Secure facilities with 24/7 surveillance.",
     "service_storage_feature": "6 regional hubs",
-    
     "service_national_title": "National Distribution",
-    "service_national_desc": "Efficient distribution across the Netherlands with optimized routes and reliable delivery times. Full visibility through digital control tower.",
+    "service_national_desc": "Reliable distribution throughout the Netherlands, supported by optimized routes and consistent delivery times. Full transparency via our digital control center. International Shipping",
     "service_national_feature": "Digital control tower",
-    
     "service_international_title": "International Shipping",
     "service_international_desc": "Seamless cross-border shipping across Europe with customs support and fast transit times. Air, sea & rail combined expertise.",
     "service_international_feature": "Air · Sea · Rail",
-    
     "service_car_title": "Car Transport",
     "service_car_desc": "Safe and professional vehicle transport for individuals and businesses across Europe. Enclosed carriers, real-time tracking, and full insurance coverage.",
     "service_car_feature": "Fully insured · enclosed carriers"
-},
-
- "whoweare": {
+  },
+  "whoweare": {
     "hero_title_1": "WHO WE",
     "hero_title_2": "ARE",
     "hero_btn_services": "Our Services",
     "hero_btn_quote": "Get a Quote",
-    
     "about_tag": "Our Story",
     "about_title_1": "About",
     "about_title_2": "Aasirko Global",
-    "about_desc_1": "A modern logistics company delivering reliable solutions across borders. We specialise in pharmaceutical and clinical trial supply chains, built on a foundation of precision, speed, and trust.",
-    
+    "about_desc_1": "We are a modern logistics company offering reliable and efficient solutions across national borders. Our expertise lies in pharmaceutical logistics and supply chains for clinical studies, built on a foundation of precision, speed, and trust.",
     "years_badge": "Years of Experience",
-    
     "stat_clients": "Clients Worldwide",
     "stat_countries": "Countries Covered",
     "stat_ontime": "On-Time Delivery",
     "stat_experience": "Years Experience",
-    
     "mission_vision_tag": "Mission & Vision",
     "mission_vision_title_1": "What drives",
     "mission_vision_title_2": "us forward",
-    
     "mission_tag": "Our Mission",
     "mission_title": "Deliver excellence in every shipment",
     "mission_desc": "We are committed to delivering excellence in every shipment — combining cutting-edge technology, regulatory compliance, and a dedicated team to ensure your cargo arrives safely, on time, every time.",
-    
     "vision_tag": "Our Vision",
     "vision_title": "To be Europe's most trusted logistics partner",
     "vision_desc": "Our vision is to be the most trusted logistics partner in Europe — continuously expanding our network, investing in innovation, and setting new standards in pharmaceutical supply chain management.",
-    
     "experience_tag": "Our Experience",
     "experience_title_1": "Years of expertise in",
     "experience_title_2": "logistics & transport",
     "experience_desc_1": "With over 25 years of expertise in logistics and transport, Aasirko Global has developed a deep understanding of complex supply chains — from last-mile delivery to intercontinental freight management.",
-    
     "timeline_1999_year": "1999",
     "timeline_1999_title": "Founded in the Netherlands",
     "timeline_1999_desc": "Established as a regional freight forwarder with a focus on Benelux markets.",
-    
     "timeline_2008_year": "2008",
     "timeline_2008_title": "Expanded into pharmaceutical logistics",
     "timeline_2008_desc": "Developed specialised cold-chain and GDP-compliant distribution services.",
-    
     "timeline_2016_year": "2016",
     "timeline_2016_title": "Western European hub opened",
     "timeline_2016_desc": "Strategic hubs in Germany and Luxembourg to serve the broader European market.",
-    
     "timeline_today_year": "Today",
     "timeline_today_title": "Global reach, local expertise",
     "timeline_today_desc": "500+ clients across 12 countries, with a 99% on-time delivery rate.",
-    
     "whyus_tag": "Why Choose Us",
     "whyus_title_1": "Speed, reliability",
     "whyus_title_2": "& customer focus",
     "whyus_desc": "Speed, reliability, and customer focus are not just words — they are the pillars of everything we do at Aasirko Global.",
-    
     "feature_1_title": "Fast & Reliable Delivery",
     "feature_1_desc": "We guarantee on-time delivery across all our European routes, backed by real-time tracking and proactive communication at every step.",
-    
     "feature_2_title": "GDP & Regulatory Compliance",
     "feature_2_desc": "Fully compliant with Good Distribution Practice standards, ensuring pharmaceutical and clinical cargo is handled with the highest level of care.",
-    
     "feature_3_title": "24/7 Customer Support",
     "feature_3_desc": "Our dedicated support team is available around the clock in both English and Dutch to assist with any logistics challenge you face.",
-    
     "feature_4_title": "Dedicated Account Management",
     "feature_4_desc": "Every client gets a dedicated account manager who understands your business and provides personalised logistics solutions tailored to your needs."
-},
+  },
   "career": {
     "hero_title_1": "JOIN OUR",
     "hero_title_2": "TEAM",
@@ -276,105 +260,82 @@
     "positions_title": "Current Openings",
     "apply_btn": "Apply Now"
   },
-
- "global": {
+  "global": {
     "hero_title_1": "Global ",
     "hero_title_2": "Network",
     "hero_desc": "We continue to use our logistical strength to expand our presence across the ",
     "hero_countries": "Netherlands, Belgium, Luxembourg, and Germany",
     "hero_desc_2": "Our Western European hub ensures fast, secure, and efficient distribution to areas where clinical trials and patient populations are increasing. It is all about location. We welcome you to explore our network to reach your patients faster.",
-    
     "network_tag": "Our Reach",
     "network_title_1": "Global",
     "network_title_2": "Coverage",
     "network_desc": "With strategic hubs in Europe, the Middle East, Asia, and Africa we offer truly global logistics reach.",
-    
     "country_nl_name": "Netherlands",
     "country_nl_subtitle": "Netherlands — Fast nationwide coverage",
     "country_nl_desc": "Our Dutch operations form the backbone of our European logistics. With access to Rotterdam — Europe's largest port — we ensure rapid, reliable nationwide distribution and seamless international connections.",
-    
     "country_be_name": "Belgium",
     "country_be_subtitle": "Belgium — Reliable cross-border delivery",
     "country_be_desc": "Belgium's central position in Western Europe makes it a critical node in our network. We deliver reliably across all Belgian regions and leverage its infrastructure to connect neighbouring markets with speed and precision.",
-    
     "country_lu_name": "Luxembourg",
     "country_lu_subtitle": "Strategic logistics hub",
     "country_lu_desc": "Luxembourg serves as a vital strategic hub within our network. Its prime location at the crossroads of France, Belgium, and Germany enables swift and efficient distribution throughout the region.",
-    
     "country_de_name": "Germany",
     "country_de_subtitle": "Germany — Strong transport connections",
     "country_de_desc": "Germany's extensive road, rail, and air network amplifies our reach across Central Europe. Our German operations ensure consistent delivery performance and support time-sensitive pharmaceutical logistics at scale.",
-    
     "country_we_name": "Western Europe",
     "country_we_subtitle": "Wide coverage and flexibility",
     "country_we_desc": "Beyond our core markets, Aasirko Global maintains broad Western European coverage. Our flexible logistics model adapts to the unique demands of each territory, ensuring no patient population is out of reach.",
-    
     "country_partners_name": "International Partners",
     "country_partners_subtitle": "Global reach through trusted partners",
     "country_partners_desc": "Our vetted network of international partners extends our capabilities beyond Europe. Through these alliances, we maintain end-to-end supply chain integrity and offer seamless global reach for clinical trial logistics worldwide.",
-    
     "map_btn_nl": "Netherlands",
     "map_btn_be": "Belgium",
     "map_btn_lu": "Luxembourg",
     "map_btn_de": "Germany",
     "map_btn_we": "Western Europe",
-    
     "cta_title": "Connect Your Supply Chain Globally",
     "cta_desc": "Let our global network work for your business.",
     "cta_btn_quote": "Get a Quote",
     "cta_btn_contact": "Contact Us"
-},
-
- "industrySolutions": {
+  },
+  "industrySolutions": {
     "hero_title_1": "Industry",
     "hero_title_2": "Solutions",
     "main_tag": "Industry Solutions",
     "main_title_1": "Built for",
     "main_title_2": "every sector",
     "main_desc": "Tailored logistics solutions for your specific industry needs",
-    
     "card_ecommerce_title": "E-Commerce Logistics",
     "card_ecommerce_desc": "Fast fulfillment & last-mile delivery solutions",
-    
     "card_automotive_title": "Automotive ",
     "card_automotive_desc": "Transport of vehicles and automotive parts",
-    
     "card_healthcare_title": "Retail & Wholesale",
     "card_healthcare_desc": "Reliable distribution for retail and bulk goods",
-    
     "card_manufacturing_title": "B2B",
     "card_manufacturing_desc": "Dedicated logistics solutions for businesses",
-    
     "card_retail_title": "Retail Distribution",
     "card_retail_desc": "Omnichannel fulfillment & returns management",
-    
     "card_tech_title": "B2C",
     "card_tech_desc": "Fast and flexible delivery for private customers",
-    
     "cta_title_1": "Your industry.",
     "cta_title_2": "Our expertise.",
     "cta_desc": "Tell us about your sector and we'll build the right solution for you.",
     "cta_btn_quote": "Get a Quote",
     "cta_btn_contact": "Contact Us"
-},
-
-"knowlageHup": {
+  },
+  "knowlageHup": {
     "hero_title_1": "KNOWLEDGE",
     "hero_title_2": "HUB",
     "advice_tag": "Expert Guidance",
     "advice_title_1": "Strategic Insights for",
     "advice_title_2": "Global Logistics.",
     "advice_desc": "Navigate complex supply chains with our expert advisory. From tax optimization to cross-border regulations, we ensure your business stays ahead of the curve.",
-    
     "customs_title": "Customs & Compliance",
     "customs_desc": "Our team provides in-depth analysis of EU customs regulations and international trade laws. We help you minimize delays and avoid costly penalties through proactive documentation management and regulatory foresight.",
-    
     "supply_chain_title": "Supply Chain Efficiency",
     "supply_chain_desc": "Reduce operational overhead by leveraging our network design tools. We analyze your current shipping lanes and inventory levels to recommend high-performance routes that decrease transit times by up to 15%.",
-    
     "tax_title": "Tax & Financial Planning",
     "tax_desc": "Specialized guidance for Arabic-speaking entrepreneurs entering the EU market. We offer VAT registration support, tax-efficient structuring, and corporate financial planning tailored to the logistics industry.",
-    
     "news_tag": "Stay Updated",
     "news_title_1": "Latest",
     "news_title_2": "News",
@@ -386,8 +347,7 @@
     "news_article_badge_2": "Case Study",
     "news_article_2_title": "Safeguarding Client Samples During Power Outage",
     "news_details": "Details"
-},
-
+  },
   "getaquote": {
     "hero_title_1": "GET A",
     "hero_title_2": "QUOTE",
@@ -395,13 +355,11 @@
     "calc_title_1": "Get an instant",
     "calc_title_2": "price estimate",
     "calc_desc": "Select your service type and fill in the key details for a quick estimate.",
-    
     "tab_road": "Road Transport",
     "tab_courier": "Courier / Parcel",
     "tab_air": "Air Freight",
     "tab_sea": "Sea Freight",
     "tab_warehouse": "Warehousing",
-    
     "label_origin_country": "Origin Country",
     "label_dest_country": "Destination Country",
     "placeholder_select_country": "Select country...",
@@ -433,7 +391,6 @@
     "label_special_req": "Special Requirements (optional)",
     "placeholder_special_req": "e.g. temperature range, ADR class, tail-lift required, insurance needed...",
     "btn_calculate": "Calculate Estimate →",
-    
     "estimate_label": "Estimated Price Range",
     "estimate_fill_form": "Fill in the form to get your estimate",
     "estimate_base_rate": "Base rate",
@@ -441,38 +398,30 @@
     "estimate_weight_vol": "Weight / volume",
     "estimate_express": "Express premium",
     "estimate_total": "Total estimate",
-    
     "prefer_talk": "Prefer to talk?",
     "why_aasirko": "Why Aasirko?",
     "why_1": "No hidden fees — transparent pricing",
     "why_2": "GDP & ADR compliant fleet",
     "why_3": "Real-time shipment tracking",
     "why_4": "Dedicated account manager",
-    
     "courier_tag": "Book a Courier",
     "courier_title_1": "Fast booking",
     "courier_title_2": "in minutes",
     "courier_desc": "Choose your courier service and book in just a few clicks. Available across the Netherlands, Belgium, Germany and Luxembourg.",
-    
     "courier_same_day_label": "Same Day",
     "courier_same_day_title": "Same-Day Delivery",
     "courier_same_day_desc": "Urgent shipments collected and delivered on the same working day. Local & regional coverage.",
     "courier_most_popular": "Most Popular",
-    
     "courier_express_label": "Express",
     "courier_express_title": "Next-Day Express",
     "courier_express_desc": "Guaranteed next-business-day delivery across Benelux and Germany with full tracking.",
-    
     "courier_economy_label": "Economy",
     "courier_economy_title": "Economy Parcel",
     "courier_economy_desc": "Cost-effective parcel delivery in 3–5 working days. Ideal for non-urgent shipments.",
-    
     "courier_book_now": "Book Now",
-    
     "how_tag": "How It Works",
     "how_title_1": "Your quote in",
     "how_title_2": "4 simple steps",
-    
     "step_1_title": "Fill in the quote form",
     "step_1_desc": "Enter your origin, destination, cargo details, and service preference in our quick form above.",
     "step_2_title": "We prepare your quote",
@@ -481,54 +430,44 @@
     "step_3_desc": "Accept the quote, confirm your pickup date and we handle all the logistics from there.",
     "step_4_title": "Track in real-time",
     "step_4_desc": "Monitor your shipment every step of the way via our Track & Trace portal with live updates.",
-    
     "cta_title": "Ready to ship with us?",
     "cta_desc": "Get your free quote today — no commitment required.",
     "cta_btn_quote": "Get Instant Quote",
     "cta_btn_call": "Call Us Now"
-},
-"career": {
+  },
+  "career": {
     "hero_title_1": "CAREERS",
     "hero_title_2": "",
-    
     "intro_tag": "CAREERS",
     "intro_title_1": "Join our growing",
     "intro_title_2": "logistics team",
     "intro_desc": "We are always looking for passionate, driven professionals to join Aasirko Global. Whether you are an experienced logistics expert or just starting your career, there is a place for you in our team.",
     "intro_btn_positions": "View Open Positions",
     "intro_btn_application": "Open Application",
-    
     "stat_positions": "Open Positions",
     "stat_countries": "Countries Hiring",
     "stat_team": "Team Members",
     "stat_retention": "Employee Retention",
-    
     "positions_tag": "Job Opportunities",
     "positions_title_1": "Current",
     "positions_title_2": "openings",
-    
     "job_1_type": "Full-time",
     "job_1_location": "Netherlands",
     "job_1_category": "Driver",
     "job_1_title": "Professional Transport Driver",
-    
     "job_2_type": "Full-time",
     "job_2_location": "Germany / Belgium",
     "job_2_category": "Driver",
     "job_2_title": "Long-Haul Driver — Germany & Belgium",
-    
     "job_3_type": "Full-time",
     "job_3_location": "Netherlands",
     "job_3_category": "Operations",
     "job_3_title": "Logistics Coordinator",
-    
     "job_4_type": "Part / Full-time",
     "job_4_location": "Remote / NL",
     "job_4_category": "Operations",
     "job_4_title": "Customer Service Representative",
-    
     "apply_btn": "Apply Now",
-    
     "drivers_tag": "Drivers Wanted",
     "drivers_title_1": "Professional drivers",
     "drivers_title_2": "needed",
@@ -548,7 +487,6 @@
     "drivers_benefit_4_title": "Training",
     "drivers_benefit_4_desc": "CPC & ongoing dev",
     "drivers_apply_btn": "Apply as Driver",
-    
     "partner_tag": "Partner with Us",
     "partner_title_1": "Collaborate with",
     "partner_title_2": "Aasirko Global",
@@ -563,7 +501,6 @@
     "partner_card_3_title": "Facility Partners",
     "partner_card_3_desc": "Own warehouse facilities in our key markets? Let's work together.",
     "partner_btn": "Become a Partner",
-    
     "application_tag": "Open Application",
     "application_title_1": "Send your CV",
     "application_title_2": "anytime",
@@ -571,7 +508,6 @@
     "application_email_label": "Email us directly",
     "application_phone_label": "Call our HR team",
     "application_form_title": "Send your application",
-    
     "form_first_name": "First Name",
     "form_first_name_placeholder": "Jan",
     "form_last_name": "Last Name",
@@ -594,13 +530,12 @@
     "form_cv_drag": "Drag & drop or",
     "form_cv_browse": "browse file",
     "form_submit": "Submit Application →",
-    
     "cta_title": "Ready to join us?",
     "cta_desc": "Take the next step in your logistics career with Aasirko Global.",
     "cta_btn_jobs": "See All Jobs",
     "cta_btn_cv": "Send CV"
-},
-"contact": {
+  },
+  "contact": {
     "hero_title_1": "CONTACT",
     "hero_title_2": "US",
     "form_tag": "Contact Us",
@@ -630,5 +565,5 @@
     "info_hours_label": "Opening Hours",
     "info_hours_value": "Mon — Fri: 08:00 — 18:00 CET",
     "map_title": "We are here"
-}
+  }
 }

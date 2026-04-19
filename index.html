@@ -25,7 +25,7 @@
     };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
- 
+   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -180,7 +180,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
         </svg>
         <div>
           <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
-          <div class="text-sm text-gray-500">0234-8765-9110</div>
+          <div class="text-sm text-gray-500">+31 6 8611 0373</div>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -190,7 +190,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
         </svg>
         <div>
           <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
-          <div class="text-sm text-gray-500">info@assirko.com</div>
+          <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
         </div>
       </div>
     </div>
@@ -212,7 +212,7 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
       <a href="Services.html"       class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_services">Services</a>
       <a href="Global.html"         class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
       <a href="industrySolutions.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
-      <a href="knowledgeHub.html"   class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+      <a href="knowlageHup.html"   class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
       <a href="getaquote.html"      class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
       <a href="career.html"         class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_careers">Careers</a>
       <a href="contact.html"        class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_contact">Contact</a>
@@ -628,11 +628,32 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
         <span data-i18n="contact.info_desc">We are always looking for ways to improve our services. Contact us and let us know how we can help you.</span>
       </p>
 
-      <!-- Contact Info -->
-      <div class="flex flex-wrap gap-6 text-gray-400 text-sm">
-        <span>info@assirko.com</span>
-        <span>+973 1722 0220</span>
-        <span>+973 1722 9122</span>
+      <!-- AASiRKO Card -->
+      <div class="bg-white/[0.04] border border-white/[0.08] rounded-xl p-5 space-y-4">
+        <p class="text-xs font-semibold text-orange-500 uppercase tracking-widest">AASiRKO Global B.V.</p>
+
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+          <div>
+            <p class="text-[11px] text-gray-500 mb-0.5 uppercase tracking-wide">KVK-nummer</p>
+            <p class="text-gray-200">98187120</p>
+          </div>
+          <div>
+            <p class="text-[11px] text-gray-500 mb-0.5 uppercase tracking-wide">Type</p>
+            <p class="text-gray-200">Besloten Vennootschap</p>
+          </div>
+          <div>
+            <p class="text-[11px] text-gray-500 mb-0.5 uppercase tracking-wide">Address</p>
+            <p class="text-gray-200">Edisonbaan 23, 3439MN Nieuwegein</p>
+          </div>
+          <div>
+            <p class="text-[11px] text-gray-500 mb-0.5 uppercase tracking-wide">Phone</p>
+            <p class="text-gray-200">+31 6 8611 0373</p>
+          </div>
+        </div>
+
+        <div class="border-t border-white/[0.07] pt-3 flex flex-wrap gap-4 text-gray-500 text-xs">
+          <span>info@assirko.com</span>
+        </div>
       </div>
 
       <!-- Map -->
@@ -798,33 +819,31 @@ body{background:var(--dark);color:var(--text);font-family:var(--font-body);font-
       <div>
         <div class="footer-col-title" data-i18n="common.footer_services_title">Services</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_air_freight">Air Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_ocean_freight">Ocean Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_road_transport">Road Transport</a></li>
-          <li><a href="#" data-i18n="common.footer_rail_logistics">Rail Logistics</a></li>
-          <li><a href="#" data-i18n="common.footer_warehousing">Warehousing</a></li>
-          <li><a href="#" data-i18n="common.footer_customs_clearance">Customs Clearance</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_air_freight">Courier Services</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_ocean_freight">Express Delivery</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_road_transport">National Distribution</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_rail_logistics">International Shipping</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_warehousing">Car Transport</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_customs_clearance"> Storage & Logistics</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title" data-i18n="common.footer_company_title">Company</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_who_we_are">Who We Are</a></li>
-          <li><a href="#" data-i18n="common.footer_leadership_team">Leadership Team</a></li>
-          <li><a href="#" data-i18n="common.footer_global_network">Global Network</a></li>
-          <li><a href="#" data-i18n="common.footer_sustainability">Sustainability</a></li>
-          <li><a href="#" data-i18n="common.footer_newsroom">Newsroom</a></li>
-          <li><a href="#" data-i18n="common.footer_careers">Careers</a></li>
+          <li><a href="whoweare.html" data-i18n="common.footer_who_we_are">Who We Are</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_leadership_team">Services</a></li>
+          <li><a href="Global.html" data-i18n="common.footer_global_network">Global Network</a></li>
+          <li><a href="industrySolutions.html" data-i18n="common.footer_sustainability">Industry Solutions</a></li>
+          <li><a href="career.html" data-i18n="common.footer_careers">Careers</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title" data-i18n="common.footer_contact_title">Contact</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
-          <li><a href="#" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
-          <li><a href="#" data-i18n="common.footer_customer_support">Customer Support</a></li>
-          <li><a href="#" data-i18n="common.footer_partner_program">Partner Program</a></li>
-          <li><a href="#" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
+          <li><a href="getaquote.html" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
+          <li><a href="track.html" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
+          <li><a href="contact.html" data-i18n="common.footer_customer_support">Customer Support</a></li>
+          <li><a href="knowlageHup.html" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
           <li><a href="#" data-i18n="common.footer_legal_compliance">Legal &amp; Compliance</a></li>
         </ul>
       </div>

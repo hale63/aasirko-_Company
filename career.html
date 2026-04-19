@@ -1,112 +1,449 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="navbar.companyName">career</title>
- <link rel="icon" href="assets/images/carlogo.png"class="flex  h-[100px]" type="image/png">
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --orange:#e85d04;--orange-dark:#c44d00;--orange-glow:rgba(232,93,4,0.18);
-  --dark:#0e0e0e;--dark2:#161616;--dark3:#1e1e1e;
-  --surface:#242424;--surface2:#2c2c2c;
-  --text:#f5f5f0;--text2:#a0a09a;--text3:#666660;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
-  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
-  --radius:12px;--radius-lg:20px;
-  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
-}
-html{scroll-behavior:smooth}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="assets/images/carlogo.png" class="flex  h-[100px]" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--dark2)}
-::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* ─── SECTION COMMONS ─── */
-.section{padding:100px 0}
-.container{max-width:1280px;margin:0 auto;padding:0 32px}
-.section-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px}
-.section-tag span{font-family:var(--font-head);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)}
-.section-tag::before{content:'';width:24px;height:2px;background:var(--orange);border-radius:2px}
-.section-title{font-family:var(--font-head);font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--text)}
-.section-desc{font-size:17px;font-weight:300;color:var(--text2);line-height:1.7;max-width:560px;margin-top:16px}
+    :root {
+      --orange: #e85d04;
+      --orange-dark: #c44d00;
+      --orange-glow: rgba(232, 93, 4, 0.18);
+      --dark: #0e0e0e;
+      --dark2: #161616;
+      --dark3: #1e1e1e;
+      --surface: #242424;
+      --surface2: #2c2c2c;
+      --text: #f5f5f0;
+      --text2: #a0a09a;
+      --text3: #666660;
+      --border: rgba(255, 255, 255, 0.07);
+      --border2: rgba(255, 255, 255, 0.12);
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* ─── FOOTER ─── */
-.footer{background:var(--dark2);border-top:1px solid var(--border);padding:80px 0 40px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+    html {
+      scroll-behavior: smooth
+    }
 
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px;text-decoration:none}
-.footer-about{font-size:14px;font-weight:300;color:var(--text2);line-height:1.7;margin-bottom:24px}
-.footer-socials{display:flex;gap:8px}
-.footer-social{width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);color:var(--text2);text-decoration:none}
-.footer-social:hover{background:var(--orange-glow);border-color:rgba(232,93,4,0.3);color:var(--orange)}
-.footer-social svg{width:14px;height:14px}
-.footer-col-title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text);margin-bottom:20px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:14px;font-weight:300;color:var(--text2);text-decoration:none;transition:var(--transition);display:flex;align-items:center;gap:6px}
-.footer-links a::before{content:'';width:0;height:1px;background:var(--orange);transition:width 0.3s ease}
-.footer-links a:hover{color:var(--orange)}
-.footer-links a:hover::before{width:12px}
-.footer-bottom{border-top:1px solid var(--border);padding-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-copy{font-size:13px;color:var(--text3)}
-.footer-legal{display:flex;gap:20px}
-.footer-legal a{font-size:13px;color:var(--text3);text-decoration:none;transition:var(--transition)}
-.footer-legal a:hover{color:var(--text)}
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar {
+      width: 4px
+    }
 
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:0.1s}
-.reveal-delay-2{transition-delay:0.2s}
-.reveal-delay-3{transition-delay:0.3s}
-.reveal-delay-4{transition-delay:0.4s}
+    ::-webkit-scrollbar-track {
+      background: var(--dark2)
+    }
 
-/* ─── RESPONSIVE ─── */
-@media(max-width:1024px){
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .whyus-inner{grid-template-columns:1fr;gap:48px}
-  .whyus-visual{display:none}
-  .numbers-grid{grid-template-columns:repeat(2,1fr)}
-  .number-item:nth-child(2){border-right:none}
-  .number-item:nth-child(3){border-top:1px solid var(--border)}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
-  .testimonials-grid{grid-template-columns:1fr 1fr}
-  .testimonials-grid .testimonial-card:last-child{display:none}
-}
-@media(max-width:768px){
-  .topbar{display:none}
-  nav.main-nav,.btn-search,.btn-track{display:none!important}
-  .hamburger{display:flex}
-  .hero{min-height:80vh}
-  .hero-stats{flex-wrap:wrap;gap:24px}
-  .stat-divider{display:none}
-  .services-grid{grid-template-columns:1fr}
-  .numbers-grid{grid-template-columns:repeat(2,1fr)}
-  .testimonials-grid{grid-template-columns:1fr}
-  .testimonials-grid .testimonial-card:last-child{display:block}
-  .track-inner{grid-template-columns:1fr;gap:32px}
-  .track-illustration{display:none}
-  .track-form{flex-direction:column}
-  .cta-inner{padding:48px 28px}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .section{padding:64px 0}
-  .container{padding:0 20px}
-}
-@media(max-width:480px){
-  .navbar-inner{padding:0 20px;height:60px}
-  .hero-content{padding:0 20px}
-  .hero-actions{gap:10px}
-  .btn-primary,.btn-outline{padding:13px 22px;font-size:12px}
-}
-</style>
+    ::-webkit-scrollbar-thumb {
+      background: var(--orange);
+      border-radius: 2px
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    .section {
+      padding: 100px 0
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px
+    }
+
+    .section-tag span {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--orange)
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text)
+    }
+
+    .section-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-top: 16px
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 80px 0 40px
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      text-decoration: none
+    }
+
+    .footer-about {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.7;
+      margin-bottom: 24px
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 8px
+    }
+
+    .footer-social {
+      width: 36px;
+      height: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text2);
+      text-decoration: none
+    }
+
+    .footer-social:hover {
+      background: var(--orange-glow);
+      border-color: rgba(232, 93, 4, 0.3);
+      color: var(--orange)
+    }
+
+    .footer-social svg {
+      width: 14px;
+      height: 14px
+    }
+
+    .footer-col-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 20px
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text2);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .footer-links a::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      background: var(--orange);
+      transition: width 0.3s ease
+    }
+
+    .footer-links a:hover {
+      color: var(--orange)
+    }
+
+    .footer-links a:hover::before {
+      width: 12px
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text3)
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: var(--transition)
+    }
+
+    .footer-legal a:hover {
+      color: var(--text)
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .whyus-inner {
+        grid-template-columns: 1fr;
+        gap: 48px
+      }
+
+      .whyus-visual {
+        display: none
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .number-item:nth-child(2) {
+        border-right: none
+      }
+
+      .number-item:nth-child(3) {
+        border-top: 1px solid var(--border)
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .testimonials-grid .testimonial-card:last-child {
+        display: none
+      }
+    }
+
+    @media(max-width:768px) {
+      .topbar {
+        display: none
+      }
+
+      nav.main-nav,
+      .btn-search,
+      .btn-track {
+        display: none !important
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero {
+        min-height: 80vh
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 24px
+      }
+
+      .stat-divider {
+        display: none
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr
+      }
+
+      .testimonials-grid .testimonial-card:last-child {
+        display: block
+      }
+
+      .track-inner {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .track-illustration {
+        display: none
+      }
+
+      .track-form {
+        flex-direction: column
+      }
+
+      .cta-inner {
+        padding: 48px 28px
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center
+      }
+
+      .section {
+        padding: 64px 0
+      }
+
+      .container {
+        padding: 0 20px
+      }
+    }
+
+    @media(max-width:480px) {
+      .navbar-inner {
+        padding: 0 20px;
+        height: 60px
+      }
+
+      .hero-content {
+        padding: 0 20px
+      }
+
+      .hero-actions {
+        gap: 10px
+      }
+
+      .btn-primary,
+      .btn-outline {
+        padding: 13px 22px;
+        font-size: 12px
+      }
+    }
+  </style>
   <!-- Define config FIRST -->
   <script>
     window.tailwind = {
@@ -126,846 +463,996 @@ html{scroll-behavior:smooth}
     };
 
 
-    
-  </script>
 
-  <!-- Then load Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </script>
 </head>
 
-<body class="bg-white text-white overflow-x-hidden">
-  
-   
+
+
+
+
+
 
 <body class="bg-[--dark]">
 
-<!-- TOP BAR -->
-<div class="border-b border-gray-100 px-6 py-2 bg-[#181818]">
-  <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+  <!-- TOP BAR -->
+  <div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
 
-    <!-- Logo -->
-    <a href="index.html">
-      <img src="assests/images/carlogo.png" alt="Company Logo" class="h-16 w-auto object-contain" />
-    </a>
+      <a href="index.html">
+        <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain" />
+      </a>
 
-    <!-- Contact Info (hidden on mobile) -->
-    <div class="hidden md:flex items-center gap-6">
-
-      <!-- Phone -->
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-          <rect x="5" y="2" width="14" height="20" rx="2"/>
-          <circle cx="12" cy="18" r="1" fill="#e85d04"/>
-        </svg>
-        <div>
-          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
-          <div class="text-sm text-gray-500">0234-8765-9110</div>
+      <!-- Contact Info (desktop) -->
+      <div class="hidden md:flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <circle cx="12" cy="18" r="1" fill="#e85d04" />
+          </svg>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">
+              Phone Number</div>
+            <div class="text-sm text-gray-500">+31 6 8611 0373</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="2" y="5" width="20" height="14" rx="2" />
+            <polyline points="2,5 12,13 22,5" />
+          </svg>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">
+              Email Address</div>
+            <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
+          </div>
         </div>
       </div>
 
-      <!-- Email -->
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-          <rect x="2" y="5" width="20" height="14" rx="2"/>
-          <polyline points="2,5 12,13 22,5"/>
-        </svg>
-        <div>
-          <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
-          <div class="text-sm text-gray-500">7xthemehelp@gamil.com</div>
+      <!-- Hamburger (mobile) -->
+      <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- NAV BAR (desktop only) -->
+  <div class="hidden bg-orange-50   md:block border-b border-gray-100 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Nav Links -->
+      <nav class="flex items-center">
+        <a href="whoweare.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+        <a href="Services.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_services">Services</a>
+        <a href="Global.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+        <a href="industrySolutions.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+        <a href="knowlageHup.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+        <a href="getaquote.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+        <a href="career.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_careers">Careers</a>
+        <a href="contact.html"
+          class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors"
+          data-i18n="common.nav_contact">Contact</a>
+      </nav>
+
+      <!-- Right: Track & Trace + Search -->
+      <div class="flex items-center gap-3 py-2">
+        <a href="track.html"
+          class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+          </svg>
+          Track &amp; Trace
+        </a>
+
+        <div class="flex items-center gap-1 ml-2">
+          <button onclick="switchLanguage('en')" data-lang="en"
+            class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+            style="min-width:28px">EN</button>
+          <button onclick="switchLanguage('nl')" data-lang="nl"
+            class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+            style="min-width:28px">NL</button>
         </div>
       </div>
 
     </div>
-
-    <!-- Hamburger (mobile only) — now in top bar -->
-    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()">
-      <span class="block w-6 h-0.5 bg-white transition-all"></span>
-      <span class="block w-6 h-0.5 bg-white transition-all"></span>
-      <span class="block w-6 h-0.5 bg-white transition-all"></span>
-    </button>
-
   </div>
-</div>
 
-<!-- NAV BAR (desktop only) -->
-<div class="hidden bg-orange-50   md:block border-b border-gray-100 px-6">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <!-- MOBILE MENU (hidden by default) -->
+  <div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
 
-    <!-- Nav Links -->
-    <nav class="flex items-center">
-      <a href="whoweare.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
-      <a href="Services.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_services">Services</a>
-      <a href="Global.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
-      <a href="industrySolutions.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
-      <a href="knowlageHup.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
-      <a href="getaquote.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
-      <a href="career.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_careers">Careers</a>
-      <a href="contact.html" class="px-3 py-4 text-sm font-bold uppercase tracking-wide text-gray-800 hover:text-[#e85d04] transition-colors" data-i18n="common.nav_contact">Contact</a>
-    </nav>
+    <!-- Mobile Contact Info -->
+    <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2" />
+          <circle cx="12" cy="18" r="1" fill="#e85d04" />
+        </svg>
+        <div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">
+            Phone</div>
+          <div class="text-xs text-gray-500">0234-8765-9110</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2" />
+          <polyline points="2,5 12,13 22,5" />
+        </svg>
+        <div>
+          <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">
+            Email</div>
+          <div class="text-xs text-gray-500">7xthemehelp@gamil.com</div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Right: Track & Trace + Search -->
-    <div class="flex items-center gap-3 py-2">
-      <a href="track.html" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-2.5 rounded transition-colors">
+    <!-- Mobile Nav Links -->
+    <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100"
+      data-i18n="common.nav_home">Home</a>
+    <a href="whoweare.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_who_we_are">WHO WE ARE</a>
+    <a href="Services.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_services">Services</a>
+    <a href="Global.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
+    <a href="industrySolutions.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
+    <a href="knowlageHup.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
+    <a href="getaquote.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
+    <a href="career.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_careers">Careers</a>
+    <a href="contact.html"
+      class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]"
+      data-i18n="common.nav_contact">Contact</a>
+
+    <!-- Track & Trace (mobile) -->
+    <div class="px-5 py-4">
+      <a href="track.html"
+        class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
         </svg>
         Track &amp; Trace
       </a>
-      
       <div class="flex items-center gap-1 ml-2">
-        <button onclick="switchLanguage('en')" data-lang="en" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">EN</button>
-        <button onclick="switchLanguage('nl')" data-lang="nl" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">NL</button>
+        <button onclick="switchLanguage('en')" data-lang="en"
+          class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+          style="min-width:28px">EN</button>
+        <button onclick="switchLanguage('nl')" data-lang="nl"
+          class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]"
+          style="min-width:28px">NL</button>
       </div>
     </div>
 
   </div>
-</div>
 
-<!-- MOBILE MENU (hidden by default) -->
-<div class="hidden flex-col bg-white border-b border-gray-100" id="mobileMenu">
 
-  <!-- Mobile Contact Info -->
-  <div class="flex flex-wrap gap-4 px-5 py-3 bg-orange-50 border-b border-gray-100">
-    <div class="flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <circle cx="12" cy="18" r="1" fill="#e85d04"/>
+
+
+  <!-- HERO SECTION -->
+  <section class="relative h-[60vh] min-h-[750px] w-full flex items-center justify-center overflow-hidden">
+
+    <div class="absolute inset-0 z-0">
+      <img src="assests/images/whycareers.jpg" alt="Transport" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+        <span class="block text-white">
+          <span class="text-[#e85d04]"><span data-i18n="career.hero_title_1">CAREERS</span></span>
+        </span>
+      </h2>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+  </section>
+
+  <!-- 1. INTRO BANNER WITH BACKGROUND PHOTO -->
+  <section class="bg-[#0a0c10] py-20 px-6 md:px-12 relative overflow-hidden">
+
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80" alt="Logistics warehouse"
+        class="w-full h-full object-cover opacity-10" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0a0c10] via-[#0a0c10]/90 to-[#0a0c10]/60"></div>
+    </div>
+
+    <div class="absolute -left-10 top-0 w-64 h-64 opacity-10 pointer-events-none z-10">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-careers" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e85d04" stroke-width="1" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-careers)" />
       </svg>
-      <div>
-        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_phone_label">Phone</div>
-        <div class="text-xs text-gray-500">0234-8765-9110</div>
-      </div>
-    </div>
-    <div class="flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
-        <rect x="2" y="5" width="20" height="14" rx="2"/>
-        <polyline points="2,5 12,13 22,5"/>
-      </svg>
-      <div>
-        <div class="text-[10px] font-bold uppercase text-gray-900" data-i18n="common.topbar_mobile_email_label">Email</div>
-        <div class="text-xs text-gray-500">7xthemehelp@gamil.com</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Nav Links -->
-  <a href="index.html" class="px-5 py-3 text-sm font-bold uppercase text-[#e85d04] border-b border-gray-100" data-i18n="common.nav_home">Home</a>
-  <a href="whoweare.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_who_we_are">WHO WE ARE</a>
-  <a href="Services.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_services">Services</a>
-  <a href="Global.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_global_network">GLOBAL NETWORK</a>
-  <a href="industrySolutions.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_industry_solutions">INDUSTRY SOLUTIONS</a>
-  <a href="knowlageHup.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_knowledge_hub">KNOWLEDGE HUB</a>
-  <a href="getaquote.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_get_a_quote">GET A QUOTE</a>
-  <a href="career.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_careers">Careers</a>
-  <a href="contact.html" class="px-5 py-3 text-sm font-bold uppercase text-gray-800 border-b border-gray-100 hover:text-[#e85d04]" data-i18n="common.nav_contact">Contact</a>
-
-  <!-- Track & Trace (mobile) -->
-  <div class="px-5 py-4">
-    <a href="track.html" class="flex items-center justify-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-bold uppercase tracking-wide px-5 py-3 rounded transition-colors w-full">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
-      </svg>
-      Track &amp; Trace
-    </a>
-      <div class="flex items-center gap-1 ml-2">
-        <button onclick="switchLanguage('en')" data-lang="en" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">EN</button>
-        <button onclick="switchLanguage('nl')" data-lang="nl" class="lang-btn px-2 py-1 text-[10px] font-bold uppercase tracking-wide rounded transition-all border border-gray-300 text-gray-600 hover:border-[#e85d04] hover:text-[#e85d04]" style="min-width:28px">NL</button>
-      </div>
-  </div>
-
-</div>
- 
-
-
-
-<!-- HERO SECTION -->
-<section class="relative h-[60vh] min-h-[750px] w-full flex items-center justify-center overflow-hidden">
-  
-  <div class="absolute inset-0 z-0">
-    <img 
-      src="assests/images/whycareers.jpg" 
-      alt="Transport"
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/70"></div>
-  </div>
-
-  <div class="relative z-10 container mx-auto px-6 text-center">
-    <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
-      <span class="block text-white">
-        <span class="text-[#e85d04]"><span data-i18n="career.hero_title_1">CAREERS</span></span>
-      </span>
-    </h2>
-  </div>
-
-  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-</section>
-
-<!-- 1. INTRO BANNER WITH BACKGROUND PHOTO -->
-<section class="bg-[#0a0c10] py-20 px-6 md:px-12 relative overflow-hidden">
-
-  <div class="absolute inset-0 z-0">
-    <img
-      src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80"
-      alt="Logistics warehouse"
-      class="w-full h-full object-cover opacity-10"
-    />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0c10] via-[#0a0c10]/90 to-[#0a0c10]/60"></div>
-  </div>
-
-  <div class="absolute -left-10 top-0 w-64 h-64 opacity-10 pointer-events-none z-10">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="grid-careers" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e85d04" stroke-width="1"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid-careers)"/>
-    </svg>
-  </div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <span class="w-6 h-[2px] bg-[#e85d04]"></span>
-          <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
-            <span data-i18n="career.intro_tag">CAREERS | WERKEN BIJ</span>
-          </span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-6">
-          <span data-i18n="career.intro_title_1">Join our growing</span> <span class="text-[#e85d04]"><span data-i18n="career.intro_title_2">logistics team</span></span>
-        </h2>
-        <p class="text-gray-400 text-base leading-relaxed mb-3">
-          <span data-i18n="career.intro_desc">We are always looking for passionate, driven professionals to join Aasirko Global. Whether you are an experienced logistics expert or just starting your career, there is a place for you in our team.</span>
-        </p>
-        
-        <div class="flex flex-wrap gap-4">
-          <a href="#open-positions" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-black uppercase tracking-widest px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30">
-            <span data-i18n="career.intro_btn_positions">View Open Positions</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#open-application" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#e85d04] text-white hover:text-[#e85d04] text-xs font-black uppercase tracking-widest px-7 py-3.5 rounded-xl transition-all">
-            <span data-i18n="career.intro_btn_application">Open Application</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3 h-[420px]">
-        <div class="row-span-2 rounded-xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Truck on highway" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100"/>
-        </div>
-        <div class="rounded-xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Warehouse logistics" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100"/>
-        </div>
-        <div class="rounded-xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Cargo containers" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100"/>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- 2. STATS BAR -->
-<section class="bg-[#e85d04] py-10 px-6 md:px-12">
-  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-[#c94e00]">
-    <div class="bg-[#e85d04] text-center px-8 py-6">
-      <div class="text-4xl font-black text-white leading-none">12+</div>
-      <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
-        <span data-i18n="career.stat_positions">Open Positions</span>
-      </div>
-    </div>
-    <div class="bg-[#e85d04] text-center px-8 py-6">
-      <div class="text-4xl font-black text-white leading-none">5</div>
-      <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
-        <span data-i18n="career.stat_countries">Countries Hiring</span>
-      </div>
-    </div>
-    <div class="bg-[#e85d04] text-center px-8 py-6">
-      <div class="text-4xl font-black text-white leading-none">120+</div>
-      <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
-        <span data-i18n="career.stat_team">Team Members</span>
-      </div>
-    </div>
-    <div class="bg-[#e85d04] text-center px-8 py-6">
-      <div class="text-4xl font-black text-white leading-none">94%</div>
-      <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
-        <span data-i18n="career.stat_retention">Employee Retention</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3. OPEN JOB POSITIONS -->
-<section id="open-positions" class="bg-[#111318] py-20 px-6 md:px-12">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="flex items-center gap-3 mb-4">
-      <span class="w-6 h-[2px] bg-[#e85d04]"></span>
-      <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
-        <span data-i18n="career.positions_tag">Job Opportunities | Vacatures</span>
-      </span>
-    </div>
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-          <span data-i18n="career.positions_title_1">Current</span> <span class="text-[#e85d04]"><span data-i18n="career.positions_title_2">openings</span></span>
-        </h2>
-      </div>
     </div>
 
-    <div class="flex flex-col gap-3">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      <!-- Job 1: Professional Transport Driver -->
-      <div class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
-        <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80" alt="Driver job" class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700"/>
-        </div>
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
-          <div>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_1_type">Full-time</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_1_location">Netherlands</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_1_category">Driver</span>
-              </span>
-            </div>
-            <div class="text-white font-black text-lg leading-tight mb-1">
-              <span data-i18n="career.job_1_title">Professional Transport Driver</span>
-            </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-6 h-[2px] bg-[#e85d04]"></span>
+            <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
+              <span data-i18n="career.intro_tag">CAREERS | WERKEN BIJ</span>
+            </span>
           </div>
-          <a href="#open-application" class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
-            <span data-i18n="career.apply_btn">Apply Now</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
+          <h2 class="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-6">
+            <span data-i18n="career.intro_title_1">Join our growing</span> <span class="text-[#e85d04]"><span
+                data-i18n="career.intro_title_2">logistics team</span></span>
+          </h2>
+          <p class="text-gray-400 text-base leading-relaxed mb-3">
+            <span data-i18n="career.intro_desc">We are always looking for passionate, driven professionals to join
+              Aasirko Global. Whether you are an experienced logistics expert or just starting your career, there is a
+              place for you in our team.</span>
+          </p>
 
-      <!-- Job 2: Long-Haul Driver -->
-      <div class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
-        <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&q=80" alt="Long haul truck" class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700"/>
+
         </div>
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
-          <div>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_2_type">Full-time</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_2_location">Germany / Belgium</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_2_category">Driver</span>
-              </span>
-            </div>
-            <div class="text-white font-black text-lg leading-tight mb-1">
-              <span data-i18n="career.job_2_title">Long-Haul Driver — Germany & Belgium</span>
-            </div>
+
+        <div class="grid grid-cols-2 gap-3 h-[420px]">
+          <div class="row-span-2 rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Truck on highway"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100" />
           </div>
-          <a href="#open-application" class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
-            <span data-i18n="career.apply_btn">Apply Now</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Job 3: Logistics Coordinator -->
-      <div class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
-        <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="Warehouse operations" class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700"/>
-        </div>
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
-          <div>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_3_type">Full-time</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_3_location">Netherlands</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_3_category">Operations</span>
-              </span>
-            </div>
-            <div class="text-white font-black text-lg leading-tight mb-1">
-              <span data-i18n="career.job_3_title">Logistics Coordinator</span>
-            </div>
+          <div class="rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Warehouse logistics"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100" />
           </div>
-          <a href="#open-application" class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
-            <span data-i18n="career.apply_btn">Apply Now</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Job 4: Customer Service Representative -->
-      <div class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
-        <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80" alt="Customer service team" class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700"/>
-        </div>
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
-          <div>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_4_type">Part / Full-time</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_4_location">Remote / NL</span>
-              </span>
-              <span class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
-                <span data-i18n="career.job_4_category">Operations</span>
-              </span>
-            </div>
-            <div class="text-white font-black text-lg leading-tight mb-1">
-              <span data-i18n="career.job_4_title">Customer Service Representative</span>
-            </div>
+          <div class="rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Cargo containers"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 brightness-75 hover:brightness-100" />
           </div>
-          <a href="#open-application" class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
-            <span data-i18n="career.apply_btn">Apply Now</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 5. DRIVERS WANTED SECTION -->
-<section class="bg-[#0a0c10] py-0 overflow-hidden">
-  <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
-
-    <div class="relative h-72 lg:h-auto overflow-hidden">
-      <img
-        src="assests/images/Automotive-division-subsegment-commercial-vehicles.webp"
-        alt="Professional truck driver"
-        class="w-full h-full object-cover brightness-75"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0c10] hidden lg:block"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0c10] to-transparent lg:hidden"></div>
-      <div class="absolute bottom-8 left-8 bg-[#e85d04] text-white p-5 rounded-xl shadow-2xl">
-        <div class="text-3xl font-black leading-none">CE / BE</div>
-        <div class="text-[11px] font-bold uppercase tracking-widest opacity-80 mt-1">
-          <span data-i18n="career.drivers_license_badge">Licence required</span>
+  <!-- 2. STATS BAR -->
+  <section class="bg-[#e85d04] py-10 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-[#c94e00]">
+      <div class="bg-[#e85d04] text-center px-8 py-6">
+        <div class="text-4xl font-black text-white leading-none">12+</div>
+        <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
+          <span data-i18n="career.stat_positions">Open Positions</span>
+        </div>
+      </div>
+      <div class="bg-[#e85d04] text-center px-8 py-6">
+        <div class="text-4xl font-black text-white leading-none">5</div>
+        <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
+          <span data-i18n="career.stat_countries">Countries Hiring</span>
+        </div>
+      </div>
+      <div class="bg-[#e85d04] text-center px-8 py-6">
+        <div class="text-4xl font-black text-white leading-none">120+</div>
+        <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
+          <span data-i18n="career.stat_team">Team Members</span>
+        </div>
+      </div>
+      <div class="bg-[#e85d04] text-center px-8 py-6">
+        <div class="text-4xl font-black text-white leading-none">94%</div>
+        <div class="text-[11px] font-bold uppercase tracking-widest text-white/70 mt-2">
+          <span data-i18n="career.stat_retention">Employee Retention</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="bg-[#0a0c10] px-8 md:px-14 py-16 flex flex-col justify-center">
+  <!-- 3. OPEN JOB POSITIONS -->
+  <section id="open-positions" class="bg-[#111318] py-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
       <div class="flex items-center gap-3 mb-4">
         <span class="w-6 h-[2px] bg-[#e85d04]"></span>
         <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
-          <span data-i18n="career.drivers_tag">Drivers Wanted | Chauffeurs Gezocht</span>
+          <span data-i18n="career.positions_tag">Job Opportunities | Vacatures</span>
         </span>
       </div>
-      <h2 class="text-4xl font-black text-white tracking-tight leading-tight mb-6">
-        <span data-i18n="career.drivers_title_1">Professional drivers</span> <span class="text-[#e85d04]"><span data-i18n="career.drivers_title_2">needed</span></span>
-      </h2>
-      <p class="text-gray-400 text-sm leading-relaxed mb-3">
-        <span data-i18n="career.drivers_desc">We are actively recruiting professional drivers for our transport services across the Netherlands, Belgium, Germany and Luxembourg. If you hold a valid CE or BE licence, we want to hear from you.</span>
-      </p>
-
-      <div class="flex flex-col gap-3 mb-8">
-        <div class="flex items-center gap-3">
-          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
-            <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_1">Valid CE or BE driving licence</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
-            <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_2">Valid CPC qualification card</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
-            <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_3">Minimum 2 years driving experience</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
-            <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_4">Good command of English or Dutch</span></span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
-            <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_5">Willingness to travel internationally</span></span>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            <span data-i18n="career.positions_title_1">Current</span> <span class="text-[#e85d04]"><span
+                data-i18n="career.positions_title_2">openings</span></span>
+          </h2>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-3 mb-8">
-        <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
-          <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
-            <span data-i18n="career.drivers_benefit_1_title">Salary</span>
+      <div class="flex flex-col gap-3">
+
+        <!-- Job 1: Professional Transport Driver -->
+        <div
+          class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
+          <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80" alt="Driver job"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700" />
           </div>
-          <div class="text-white text-sm font-bold">
-            <span data-i18n="career.drivers_benefit_1_desc">Competitive + bonuses</span>
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
+            <div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_1_type">Full-time</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_1_location">Netherlands</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_1_category">Driver</span>
+                </span>
+              </div>
+              <div class="text-white font-black text-lg leading-tight mb-1">
+                <span data-i18n="career.job_1_title">Professional Transport Driver</span>
+              </div>
+            </div>
+            <a href="#open-application"
+              class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
+              <span data-i18n="career.apply_btn">Apply Now</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
-          <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
-            <span data-i18n="career.drivers_benefit_2_title">Fleet</span>
+
+        <!-- Job 2: Long-Haul Driver -->
+        <div
+          class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
+          <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&q=80" alt="Long haul truck"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700" />
           </div>
-          <div class="text-white text-sm font-bold">
-            <span data-i18n="career.drivers_benefit_2_desc">Modern vehicles</span>
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
+            <div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_2_type">Full-time</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_2_location">Germany / Belgium</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_2_category">Driver</span>
+                </span>
+              </div>
+              <div class="text-white font-black text-lg leading-tight mb-1">
+                <span data-i18n="career.job_2_title">Long-Haul Driver — Germany & Belgium</span>
+              </div>
+            </div>
+            <a href="#open-application"
+              class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
+              <span data-i18n="career.apply_btn">Apply Now</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
-          <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
-            <span data-i18n="career.drivers_benefit_3_title">Support</span>
+
+        <!-- Job 3: Logistics Coordinator -->
+        <div
+          class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
+          <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="Warehouse operations"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700" />
           </div>
-          <div class="text-white text-sm font-bold">
-            <span data-i18n="career.drivers_benefit_3_desc">24/7 dispatch team</span>
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
+            <div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_3_type">Full-time</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_3_location">Netherlands</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_3_category">Operations</span>
+                </span>
+              </div>
+              <div class="text-white font-black text-lg leading-tight mb-1">
+                <span data-i18n="career.job_3_title">Logistics Coordinator</span>
+              </div>
+            </div>
+            <a href="#open-application"
+              class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
+              <span data-i18n="career.apply_btn">Apply Now</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
-          <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
-            <span data-i18n="career.drivers_benefit_4_title">Training</span>
+
+        <!-- Job 4: Customer Service Representative -->
+        <div
+          class="group bg-[#0a0c10] border border-white/10 hover:border-[#e85d04]/40 rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:bg-[#0d0f15]">
+          <div class="md:w-48 h-40 md:h-auto flex-shrink-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80"
+              alt="Customer service team"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 transition-all duration-700" />
           </div>
-          <div class="text-white text-sm font-bold">
-            <span data-i18n="career.drivers_benefit_4_desc">CPC & ongoing dev</span>
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 flex-1">
+            <div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="px-2.5 py-1 bg-[#e85d04]/10 text-[#e85d04] text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_4_type">Part / Full-time</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_4_location">Remote / NL</span>
+                </span>
+                <span
+                  class="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-bold uppercase tracking-wider rounded-md">
+                  <span data-i18n="career.job_4_category">Operations</span>
+                </span>
+              </div>
+              <div class="text-white font-black text-lg leading-tight mb-1">
+                <span data-i18n="career.job_4_title">Customer Service Representative</span>
+              </div>
+            </div>
+            <a href="#open-application"
+              class="flex-shrink-0 inline-flex items-center gap-2 border border-white/15 hover:border-[#e85d04] hover:text-[#e85d04] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-all">
+              <span data-i18n="career.apply_btn">Apply Now</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DRIVERS WANTED SECTION -->
+  <section class="bg-[#0a0c10] py-0 overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
+
+      <div class="relative h-72 lg:h-auto overflow-hidden">
+        <img src="assests/images/Automotive-division-subsegment-commercial-vehicles.webp"
+          alt="Professional truck driver" class="w-full h-full object-cover brightness-75" />
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0c10] hidden lg:block"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0c10] to-transparent lg:hidden"></div>
+        <div class="absolute bottom-8 left-8 bg-[#e85d04] text-white p-5 rounded-xl shadow-2xl">
+          <div class="text-3xl font-black leading-none">CE / BE</div>
+          <div class="text-[11px] font-bold uppercase tracking-widest opacity-80 mt-1">
+            <span data-i18n="career.drivers_license_badge">Licence required</span>
           </div>
         </div>
       </div>
 
-      <a href="#open-application" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-black uppercase tracking-widest px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30 self-start">
-        <span data-i18n="career.drivers_apply_btn">Apply as Driver</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- 7. PARTNER WITH US SECTION -->
-<section class="bg-[#111318] py-20 px-6 md:px-12 relative overflow-hidden">
-
-  <div class="absolute inset-0 z-0">
-    <img
-      src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1600&q=80"
-      alt="Logistics network"
-      class="w-full h-full object-cover opacity-5"
-    />
-  </div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="flex items-center gap-3 mb-4">
-      <span class="w-6 h-[2px] bg-[#e85d04]"></span>
-      <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
-        <span data-i18n="career.partner_tag">Partner with Us | Samenwerken</span>
-      </span>
-    </div>
-    <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-      <span data-i18n="career.partner_title_1">Collaborate with</span> <span class="text-[#e85d04]"><span data-i18n="career.partner_title_2">Aasirko Global</span></span>
-    </h2>
-    <p class="text-gray-400 text-base leading-relaxed mb-4 max-w-2xl">
-      <span data-i18n="career.partner_desc">We are open to strategic partnerships with logistics companies, transport owners, and service providers who share our commitment to reliability and quality.</span>
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <div class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
-        <div class="h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Transport owner" class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700"/>
+      <div class="bg-[#0a0c10] px-8 md:px-14 py-16 flex flex-col justify-center">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-6 h-[2px] bg-[#e85d04]"></span>
+          <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
+            <span data-i18n="career.drivers_tag">Drivers Wanted | Chauffeurs Gezocht</span>
+          </span>
         </div>
-        <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
-          <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
-            <span data-i18n="career.partner_card_1_tag">Transport Owners</span>
-          </div>
-          <h3 class="text-xl font-black text-white mb-3 tracking-tight">
-            <span data-i18n="career.partner_card_1_title">Owner-Operators</span>
-          </h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2">
-            <span data-i18n="career.partner_card_1_desc">Own a truck or small fleet? Partner with us for consistent loads across Western Europe.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
-        <div class="h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80" alt="Logistics company" class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700"/>
-        </div>
-        <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
-          <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
-            <span data-i18n="career.partner_card_2_tag">Logistics Companies</span>
-          </div>
-          <h3 class="text-xl font-black text-white mb-3 tracking-tight">
-            <span data-i18n="career.partner_card_2_title">Subcontractors</span>
-          </h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2">
-            <span data-i18n="career.partner_card_2_desc">Looking to expand your European reach? Join our trusted subcontractor network.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
-        <div class="h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Warehouse facility" class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700"/>
-        </div>
-        <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
-          <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
-            <span data-i18n="career.partner_card_3_tag">Warehousing & Storage</span>
-          </div>
-          <h3 class="text-xl font-black text-white mb-3 tracking-tight">
-            <span data-i18n="career.partner_card_3_title">Facility Partners</span>
-          </h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2">
-            <span data-i18n="career.partner_card_3_desc">Own warehouse facilities in our key markets? Let's work together.</span>
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-8 text-center">
-      <a href="#open-application" class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30">
-        <span data-i18n="career.partner_btn">Become a Partner</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- 6. OPEN APPLICATION FORM -->
-<section id="open-application" class="bg-[#0a0c10] py-20 px-6 md:px-12">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="flex items-center gap-3 mb-4">
-      <span class="w-6 h-[2px] bg-[#e85d04]"></span>
-      <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
-        <span data-i18n="career.application_tag">Open Application | Open Sollicitatie</span>
-      </span>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-      <div>
-        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-6">
-          <span data-i18n="career.application_title_1">Send your CV</span> <span class="text-[#e85d04]"><span data-i18n="career.application_title_2">anytime</span></span>
+        <h2 class="text-4xl font-black text-white tracking-tight leading-tight mb-6">
+          <span data-i18n="career.drivers_title_1">Professional drivers</span> <span class="text-[#e85d04]"><span
+              data-i18n="career.drivers_title_2">needed</span></span>
         </h2>
-        <p class="text-gray-400 text-base leading-relaxed mb-3">
-          <span data-i18n="career.application_desc">Don't see a suitable vacancy? Send us your open application and CV. We are always growing and will keep your details on file for upcoming opportunities.</span>
+        <p class="text-gray-400 text-sm leading-relaxed mb-3">
+          <span data-i18n="career.drivers_desc">We are actively recruiting professional drivers for our transport
+            services across the Netherlands, Belgium, Germany and Luxembourg. If you hold a valid CE or BE licence, we
+            want to hear from you.</span>
         </p>
 
-        <div class="flex flex-col gap-4">
-          <div class="flex items-center gap-4 p-4 bg-[#111318] border border-white/10 rounded-xl">
-            <div class="w-10 h-10 bg-[#e85d04]/10 border border-[#e85d04]/25 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 stroke-[#e85d04]" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div class="flex flex-col gap-3 mb-8">
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
+              <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
             </div>
-            <div>
-              <div class="text-white font-bold text-sm"><span data-i18n="career.application_email_label">Email us directly</span></div>
-              <div class="text-gray-500 text-xs mt-0.5">careers@aasirkoglobal.com</div>
+            <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_1">Valid CE or BE driving
+                licence</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
+              <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_2">Valid CPC qualification
+                card</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
+              <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_3">Minimum 2 years driving
+                experience</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
+              <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_4">Good command of English or
+                Dutch</span></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-[#e85d04] flex items-center justify-center">
+              <svg class="w-3 h-3 stroke-white" fill="none" stroke-width="3" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-gray-300 text-sm"><span data-i18n="career.drivers_req_5">Willingness to travel
+                internationally</span></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
+            <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
+              <span data-i18n="career.drivers_benefit_1_title">Salary</span>
+            </div>
+            <div class="text-white text-sm font-bold">
+              <span data-i18n="career.drivers_benefit_1_desc">Competitive + bonuses</span>
             </div>
           </div>
-          <div class="flex items-center gap-4 p-4 bg-[#111318] border border-white/10 rounded-xl">
-            <div class="w-10 h-10 bg-[#e85d04]/10 border border-[#e85d04]/25 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 stroke-[#e85d04]" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="#e85d04" stroke="none"/></svg>
+          <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
+            <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
+              <span data-i18n="career.drivers_benefit_2_title">Fleet</span>
             </div>
-            <div>
-              <div class="text-white font-bold text-sm"><span data-i18n="career.application_phone_label">Call our HR team</span></div>
-              <div class="text-gray-500 text-xs mt-0.5">+31 (0) 234 876 5911</div>
+            <div class="text-white text-sm font-bold">
+              <span data-i18n="career.drivers_benefit_2_desc">Modern vehicles</span>
+            </div>
+          </div>
+          <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
+            <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
+              <span data-i18n="career.drivers_benefit_3_title">Support</span>
+            </div>
+            <div class="text-white text-sm font-bold">
+              <span data-i18n="career.drivers_benefit_3_desc">24/7 dispatch team</span>
+            </div>
+          </div>
+          <div class="bg-[#111318] border border-white/10 rounded-xl p-4">
+            <div class="text-[#e85d04] text-xs font-black uppercase tracking-wider mb-1">
+              <span data-i18n="career.drivers_benefit_4_title">Training</span>
+            </div>
+            <div class="text-white text-sm font-bold">
+              <span data-i18n="career.drivers_benefit_4_desc">CPC & ongoing dev</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="bg-[#111318] border border-white/10 rounded-2xl p-8">
-        <div class="text-white font-black text-xl mb-6"><span data-i18n="career.application_form_title">Send your application</span></div>
-
-        <div class="flex flex-col gap-4">
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-                <span data-i18n="career.form_first_name">First Name</span>
-              </label>
-              <input type="text" data-i18n-placeholder="career.form_first_name_placeholder" placeholder="Jan" class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700"/>
-            </div>
-            <div>
-              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-                <span data-i18n="career.form_last_name">Last Name</span>
-              </label>
-              <input type="text" data-i18n-placeholder="career.form_last_name_placeholder" placeholder="de Vries" class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700"/>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <span data-i18n="career.form_email">Email Address</span>
-            </label>
-            <input type="email" data-i18n-placeholder="career.form_email_placeholder" placeholder="jan@example.com" class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700"/>
-          </div>
-
-          <div>
-            <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <span data-i18n="career.form_phone">Phone Number</span>
-            </label>
-            <input type="tel" data-i18n-placeholder="career.form_phone_placeholder" placeholder="+31 6 00 000 000" class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700"/>
-          </div>
-
-          <div>
-            <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <span data-i18n="career.form_role">I am applying as</span>
-            </label>
-            <select class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-gray-400 text-sm px-4 py-3 rounded-xl outline-none transition-all appearance-none cursor-pointer">
-              <option value="" disabled selected><span data-i18n="career.form_role_placeholder">Select a role...</span></option>
-              <option data-i18n="career.form_role_driver">Professional Driver</option>
-              <option data-i18n="career.form_role_coordinator">Logistics Coordinator</option>
-              <option data-i18n="career.form_role_customer">Customer Service</option>
-              <option data-i18n="career.form_role_transport">Transport Partner</option>
-              <option data-i18n="career.form_role_warehouse">Warehouse Partner</option>
-              <option data-i18n="career.form_role_other">Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <span data-i18n="career.form_message">Cover Letter / Message</span>
-            </label>
-            <textarea rows="4" data-i18n-placeholder="career.form_message_placeholder" placeholder="Tell us about yourself and your experience..." class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700 resize-none"></textarea>
-          </div>
-
-          <div>
-            <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <span data-i18n="career.form_cv">Attach CV (PDF)</span>
-            </label>
-            <div class="w-full bg-[#0a0c10] border border-dashed border-white/15 hover:border-[#e85d04]/50 rounded-xl px-4 py-6 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all group">
-              <svg class="w-8 h-8 stroke-gray-700 group-hover:stroke-[#e85d04] transition-colors" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-              <span class="text-gray-600 text-xs"><span data-i18n="career.form_cv_drag">Drag & drop or</span> <span class="text-[#e85d04]"><span data-i18n="career.form_cv_browse">browse file</span></span></span>
-              <input type="file" accept=".pdf,.doc,.docx" class="hidden"/>
-            </div>
-          </div>
-
-          <button class="w-full bg-[#e85d04] hover:bg-[#c94e00] text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30 mt-2">
-            <span data-i18n="career.form_submit">Submit Application →</span>
-          </button>
-
-        </div>
+        <a href="#open-application"
+          class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-black uppercase tracking-widest px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30 self-start">
+          <span data-i18n="career.drivers_apply_btn">Apply as Driver</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 7. CTA BANNER -->
-<section class="bg-[#e85d04] py-20 px-6 md:px-12 relative overflow-hidden">
-  <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 pointer-events-none"></div>
-  <div class="absolute -bottom-16 -left-16 w-60 h-60 rounded-full bg-black/10 pointer-events-none"></div>
+  <!-- 7. PARTNER WITH US SECTION -->
+  <section class="bg-[#111318] py-20 px-6 md:px-12 relative overflow-hidden">
 
-  <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-    <div>
-      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mb-3">
-        <span data-i18n="career.cta_title">Ready to join us?</span>
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1600&q=80" alt="Logistics network"
+        class="w-full h-full object-cover opacity-5" />
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-6 h-[2px] bg-[#e85d04]"></span>
+        <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
+          <span data-i18n="career.partner_tag">Partner with Us | Samenwerken</span>
+        </span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+        <span data-i18n="career.partner_title_1">Collaborate with</span> <span class="text-[#e85d04]"><span
+            data-i18n="career.partner_title_2">Aasirko Global</span></span>
       </h2>
-      <p class="text-white/75 text-base max-w-xl leading-relaxed">
-        <span data-i18n="career.cta_desc">Take the next step in your logistics career with Aasirko Global.</span>
+      <p class="text-gray-400 text-base leading-relaxed mb-4 max-w-2xl">
+        <span data-i18n="career.partner_desc">We are open to strategic partnerships with logistics companies,
+          transport owners, and service providers who share our commitment to reliability and quality.</span>
       </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div
+          class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Transport owner"
+              class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700" />
+          </div>
+          <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
+            <div
+              class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+            </div>
+            <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
+              <span data-i18n="career.partner_card_1_tag">Transport Owners</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-3 tracking-tight">
+              <span data-i18n="career.partner_card_1_title">Owner-Operators</span>
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-2">
+              <span data-i18n="career.partner_card_1_desc">Own a truck or small fleet? Partner with us for consistent
+                loads across Western Europe.</span>
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80" alt="Logistics company"
+              class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700" />
+          </div>
+          <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
+            <div
+              class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+            </div>
+            <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
+              <span data-i18n="career.partner_card_2_tag">Logistics Companies</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-3 tracking-tight">
+              <span data-i18n="career.partner_card_2_title">Subcontractors</span>
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-2">
+              <span data-i18n="career.partner_card_2_desc">Looking to expand your European reach? Join our trusted
+                subcontractor network.</span>
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="group bg-[#0a0c10] border border-white/10 rounded-xl overflow-hidden hover:border-[#e85d04]/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Warehouse facility"
+              class="w-full h-full object-cover group-hover:grayscale brightness-75 transition-all duration-700" />
+          </div>
+          <div class="p-7 border-t-2 border-[#e85d04] relative overflow-hidden">
+            <div
+              class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#e85d04] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+            </div>
+            <div class="text-[11px] font-bold uppercase tracking-widest text-[#e85d04] mb-2">
+              <span data-i18n="career.partner_card_3_tag">Warehousing & Storage</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-3 tracking-tight">
+              <span data-i18n="career.partner_card_3_title">Facility Partners</span>
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-2">
+              <span data-i18n="career.partner_card_3_desc">Own warehouse facilities in our key markets? Let's work
+                together.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="#open-application"
+          class="inline-flex items-center gap-2 bg-[#e85d04] hover:bg-[#c94e00] text-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30">
+          <span data-i18n="career.partner_btn">Become a Partner</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
     </div>
-    <div class="flex flex-wrap gap-4 flex-shrink-0">
-      <a href="#open-positions" class="inline-flex items-center gap-2 bg-white text-[#e85d04] font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all">
-        <span data-i18n="career.cta_btn_jobs">See All Jobs</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#open-application" class="inline-flex items-center gap-2 border-2 border-white text-white font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-white/10 transition-all">
-        <span data-i18n="career.cta_btn_cv">Send CV</span>
-      </a>
+  </section>
+
+  <!-- 6. OPEN APPLICATION FORM -->
+  <section id="open-application" class="bg-[#0a0c10] py-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-6 h-[2px] bg-[#e85d04]"></span>
+        <span class="text-[#e85d04] text-[11px] font-bold uppercase tracking-[0.12em]">
+          <span data-i18n="career.application_tag">Open Application | Open Sollicitatie</span>
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div>
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+            <span data-i18n="career.application_title_1">Send your CV</span> <span class="text-[#e85d04]"><span
+                data-i18n="career.application_title_2">anytime</span></span>
+          </h2>
+          <p class="text-gray-400 text-base leading-relaxed mb-3">
+            <span data-i18n="career.application_desc">Don't see a suitable vacancy? Send us your open application and
+              CV. We are always growing and will keep your details on file for upcoming opportunities.</span>
+          </p>
+
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4 p-4 bg-[#111318] border border-white/10 rounded-xl">
+              <div
+                class="w-10 h-10 bg-[#e85d04]/10 border border-[#e85d04]/25 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 stroke-[#e85d04]" fill="none" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-white font-bold text-sm"><span data-i18n="career.application_email_label">Email us
+                    directly</span></div>
+                <div class="text-gray-500 text-xs mt-0.5">careers@aasirkoglobal.com</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-[#111318] border border-white/10 rounded-xl">
+              <div
+                class="w-10 h-10 bg-[#e85d04]/10 border border-[#e85d04]/25 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 stroke-[#e85d04]" fill="none" stroke-width="1.8" viewBox="0 0 24 24">
+                  <rect x="5" y="2" width="14" height="20" rx="2" />
+                  <circle cx="12" cy="18" r="1" fill="#e85d04" stroke="none" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-white font-bold text-sm"><span data-i18n="career.application_phone_label">Call our HR
+                    team</span></div>
+                <div class="text-gray-500 text-xs mt-0.5">+31 (0) 234 876 5911</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#111318] border border-white/10 rounded-2xl p-8">
+          <div class="text-white font-black text-xl mb-6"><span data-i18n="career.application_form_title">Send your
+              application</span></div>
+
+          <div class="flex flex-col gap-4">
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  <span data-i18n="career.form_first_name">First Name</span>
+                </label>
+                <input type="text" data-i18n-placeholder="career.form_first_name_placeholder" placeholder="Jan"
+                  class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700" />
+              </div>
+              <div>
+                <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  <span data-i18n="career.form_last_name">Last Name</span>
+                </label>
+                <input type="text" data-i18n-placeholder="career.form_last_name_placeholder" placeholder="de Vries"
+                  class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                <span data-i18n="career.form_email">Email Address</span>
+              </label>
+              <input type="email" data-i18n-placeholder="career.form_email_placeholder" placeholder="jan@example.com"
+                class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700" />
+            </div>
+
+            <div>
+              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                <span data-i18n="career.form_phone">Phone Number</span>
+              </label>
+              <input type="tel" data-i18n-placeholder="career.form_phone_placeholder" placeholder="+31 6 00 000 000"
+                class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700" />
+            </div>
+
+            <div>
+              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                <span data-i18n="career.form_role">I am applying as</span>
+              </label>
+              <select
+                class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-gray-400 text-sm px-4 py-3 rounded-xl outline-none transition-all appearance-none cursor-pointer">
+                <option value="" disabled selected><span data-i18n="career.form_role_placeholder">Select a
+                    role...</span></option>
+                <option data-i18n="career.form_role_driver">Professional Driver</option>
+                <option data-i18n="career.form_role_coordinator">Logistics Coordinator</option>
+                <option data-i18n="career.form_role_customer">Customer Service</option>
+                <option data-i18n="career.form_role_transport">Transport Partner</option>
+                <option data-i18n="career.form_role_warehouse">Warehouse Partner</option>
+                <option data-i18n="career.form_role_other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                <span data-i18n="career.form_message">Cover Letter / Message</span>
+              </label>
+              <textarea rows="4" data-i18n-placeholder="career.form_message_placeholder"
+                placeholder="Tell us about yourself and your experience..."
+                class="w-full bg-[#0a0c10] border border-white/10 focus:border-[#e85d04] text-white text-sm px-4 py-3 rounded-xl outline-none transition-all placeholder-gray-700 resize-none"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-gray-500 text-[11px] font-bold uppercase tracking-wider mb-2">
+                <span data-i18n="career.form_cv">Attach CV (PDF)</span>
+              </label>
+              <div
+                class="w-full bg-[#0a0c10] border border-dashed border-white/15 hover:border-[#e85d04]/50 rounded-xl px-4 py-6 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all group">
+                <svg class="w-8 h-8 stroke-gray-700 group-hover:stroke-[#e85d04] transition-colors" fill="none"
+                  stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                <span class="text-gray-600 text-xs"><span data-i18n="career.form_cv_drag">Drag & drop or</span> <span
+                    class="text-[#e85d04]"><span data-i18n="career.form_cv_browse">browse file</span></span></span>
+                <input type="file" accept=".pdf,.doc,.docx" class="hidden" />
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-[#e85d04] hover:bg-[#c94e00] text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#e85d04]/30 mt-2">
+              <span data-i18n="career.form_submit">Submit Application →</span>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- 7. CTA BANNER -->
+  <section class="bg-[#e85d04] py-20 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 pointer-events-none"></div>
+    <div class="absolute -bottom-16 -left-16 w-60 h-60 rounded-full bg-black/10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mb-3">
+          <span data-i18n="career.cta_title">Ready to join us?</span>
+        </h2>
+        <p class="text-white/75 text-base max-w-xl leading-relaxed">
+          <span data-i18n="career.cta_desc">Take the next step in your logistics career with Aasirko Global.</span>
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-4 flex-shrink-0">
+        <a href="#open-positions"
+          class="inline-flex items-center gap-2 bg-white text-[#e85d04] font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all">
+          <span data-i18n="career.cta_btn_jobs">See All Jobs</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#open-application"
+          class="inline-flex items-center gap-2 border-2 border-white text-white font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-white/10 transition-all">
+          <span data-i18n="career.cta_btn_cv">Send CV</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
           <a href="#">
-      <img src="assests/images/carlogo.png" alt="Company Logo" class="h-16 w-auto object-contain" />
-    </a>
-        <p class="footer-about" data-i18n="common.footer_about">Global logistics partner delivering precision, speed and transparency across every link of your supply chain since 1996.</p>
-        <div class="footer-socials">
-          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
-          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <img src="assests/images/carlogo.png" alt="Company Logo" class="h-16 w-auto object-contain" />
+          </a>
+          <p class="footer-about" data-i18n="common.footer_about">Global logistics partner delivering precision, speed
+            and transparency across every link of your supply chain since 1996.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="common.footer_services_title">Services</div>
+          <ul class="footer-links">
+            <li><a href="Services.html" data-i18n="common.footer_air_freight">Courier Services</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_ocean_freight">Express Delivery</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_road_transport">National Distribution</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_rail_logistics">International Shipping</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_warehousing">Car Transport</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_customs_clearance"> Storage & Logistics</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="common.footer_company_title">Company</div>
+          <ul class="footer-links">
+            <li><a href="whoweare.html" data-i18n="common.footer_who_we_are">Who We Are</a></li>
+            <li><a href="Services.html" data-i18n="common.footer_leadership_team">Services</a></li>
+            <li><a href="Global.html" data-i18n="common.footer_global_network">Global Network</a></li>
+            <li><a href="industrySolutions.html" data-i18n="common.footer_sustainability">Industry Solutions</a></li>
+            <li><a href="career.html" data-i18n="common.footer_careers">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="common.footer_contact_title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="getaquote.html" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
+            <li><a href="track.html" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
+            <li><a href="contact.html" data-i18n="common.footer_customer_support">Customer Support</a></li>
+            <li><a href="knowlageHup.html" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
+            <li><a href="#" data-i18n="common.footer_legal_compliance">Legal &amp; Compliance</a></li>
+          </ul>
         </div>
       </div>
-      <div>
-        <div class="footer-col-title" data-i18n="common.footer_services_title">Services</div>
-        <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_air_freight">Air Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_ocean_freight">Ocean Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_road_transport">Road Transport</a></li>
-          <li><a href="#" data-i18n="common.footer_rail_logistics">Rail Logistics</a></li>
-          <li><a href="#" data-i18n="common.footer_warehousing">Warehousing</a></li>
-          <li><a href="#" data-i18n="common.footer_customs_clearance">Customs Clearance</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title" data-i18n="common.footer_company_title">Company</div>
-        <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_who_we_are">Who We Are</a></li>
-          <li><a href="#" data-i18n="common.footer_leadership_team">Leadership Team</a></li>
-          <li><a href="#" data-i18n="common.footer_global_network">Global Network</a></li>
-          <li><a href="#" data-i18n="common.footer_sustainability">Sustainability</a></li>
-          <li><a href="#" data-i18n="common.footer_newsroom">Newsroom</a></li>
-          <li><a href="#" data-i18n="common.footer_careers">Careers</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title" data-i18n="common.footer_contact_title">Contact</div>
-        <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
-          <li><a href="#" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
-          <li><a href="#" data-i18n="common.footer_customer_support">Customer Support</a></li>
-          <li><a href="#" data-i18n="common.footer_partner_program">Partner Program</a></li>
-          <li><a href="#" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
-          <li><a href="#" data-i18n="common.footer_legal_compliance">Legal &amp; Compliance</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <div class="footer-copy"><span data-i18n="common.footer_copyright">آ© 2025 AA-SİRKO Global Logistics. All rights
+            reserved.</span></div>
+        <div class="footer-legal">
+          <a href="#" data-i18n="common.footer_privacy_policy">Privacy Policy</a>
+          <a href="#" data-i18n="common.footer_terms_of_service">Terms of Service</a>
+          <a href="#" data-i18n="common.footer_cookie_settings">Cookie Settings</a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy"><span data-i18n="common.footer_copyright">آ© 2025 CargoEx Global Logistics. All rights reserved.</span></div>
-      <div class="footer-legal">
-        <a href="#" data-i18n="common.footer_privacy_policy">Privacy Policy</a>
-        <a href="#" data-i18n="common.footer_terms_of_service">Terms of Service</a>
-        <a href="#" data-i18n="common.footer_cookie_settings">Cookie Settings</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
 
- <style>
-.lang-btn.active-lang { background: #e85d04 !important; color: white !important; border-color: #e85d04 !important; }
-</style>
-<script src="languageSwitcher.js"></script>
- <script src="https://kit.fontawesome.com/a2e0a1b8e4.js" crossorigin="anonymous"></script>
-<script src="js.js"></script>
+  <style>
+    .lang-btn.active-lang {
+      background: #e85d04 !important;
+      color: white !important;
+      border-color: #e85d04 !important;
+    }
+  </style>
+  <script src="languageSwitcher.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0a1b8e4.js" crossorigin="anonymous"></script>
+  <script src="js.js"></script>
 </body>
+
 </html>

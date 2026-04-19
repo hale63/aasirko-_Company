@@ -150,18 +150,15 @@ html{scroll-behavior:smooth}
 <body class="bg-[--dark]">
 
 <!-- TOP BAR -->
-<div class="border-b border-gray-100 px-6 py-2 bg-[#181818]">
+<div class="border-b border-gray-800 px-6 py-2 bg-[#181818]">
   <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
-
-    <!-- Logo -->
+ 
     <a href="index.html">
-      <img src="assests/images/carlogo.png" alt="Company Logo" class="h-16 w-auto object-contain" />
+      <img src="assests/images/carlogo.png" alt="AA-SİRKO Logo" class="h-16 w-auto object-contain" />
     </a>
-
-    <!-- Contact Info (hidden on mobile) -->
+ 
+    <!-- Contact Info (desktop) -->
     <div class="hidden md:flex items-center gap-6">
-
-      <!-- Phone -->
       <div class="flex items-center gap-2">
         <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
           <rect x="5" y="2" width="14" height="20" rx="2"/>
@@ -169,11 +166,9 @@ html{scroll-behavior:smooth}
         </svg>
         <div>
           <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_phone_label">Phone Number</div>
-          <div class="text-sm text-gray-500">0234-8765-9110</div>
+          <div class="text-sm text-gray-500">+31 6 8611 0373</div>
         </div>
       </div>
-
-      <!-- Email -->
       <div class="flex items-center gap-2">
         <svg class="w-5 h-5" fill="none" stroke="#e85d04" stroke-width="1.8" viewBox="0 0 24 24">
           <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -181,19 +176,17 @@ html{scroll-behavior:smooth}
         </svg>
         <div>
           <div class="text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="common.topbar_email_label">Email Address</div>
-          <div class="text-sm text-gray-500">7xthemehelp@gamil.com</div>
+          <div class="text-sm text-gray-500">info@assirko.com | info@Twinknl.com</div>
         </div>
       </div>
-
     </div>
-
-    <!-- Hamburger (mobile only) — now in top bar -->
-    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()">
+ 
+    <!-- Hamburger (mobile) -->
+    <button class="flex md:hidden flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle menu">
       <span class="block w-6 h-0.5 bg-white transition-all"></span>
       <span class="block w-6 h-0.5 bg-white transition-all"></span>
       <span class="block w-6 h-0.5 bg-white transition-all"></span>
     </button>
-
   </div>
 </div>
 
@@ -526,39 +519,37 @@ html{scroll-behavior:smooth}
       <div>
         <div class="footer-col-title" data-i18n="common.footer_services_title">Services</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_air_freight">Air Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_ocean_freight">Ocean Freight</a></li>
-          <li><a href="#" data-i18n="common.footer_road_transport">Road Transport</a></li>
-          <li><a href="#" data-i18n="common.footer_rail_logistics">Rail Logistics</a></li>
-          <li><a href="#" data-i18n="common.footer_warehousing">Warehousing</a></li>
-          <li><a href="#" data-i18n="common.footer_customs_clearance">Customs Clearance</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_air_freight">Courier Services</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_ocean_freight">Express Delivery</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_road_transport">National Distribution</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_rail_logistics">International Shipping</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_warehousing">Car Transport</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_customs_clearance"> Storage & Logistics</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title" data-i18n="common.footer_company_title">Company</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_who_we_are">Who We Are</a></li>
-          <li><a href="#" data-i18n="common.footer_leadership_team">Leadership Team</a></li>
-          <li><a href="#" data-i18n="common.footer_global_network">Global Network</a></li>
-          <li><a href="#" data-i18n="common.footer_sustainability">Sustainability</a></li>
-          <li><a href="#" data-i18n="common.footer_newsroom">Newsroom</a></li>
-          <li><a href="#" data-i18n="common.footer_careers">Careers</a></li>
+          <li><a href="whoweare.html" data-i18n="common.footer_who_we_are">Who We Are</a></li>
+          <li><a href="Services.html" data-i18n="common.footer_leadership_team">Services</a></li>
+          <li><a href="Global.html" data-i18n="common.footer_global_network">Global Network</a></li>
+          <li><a href="industrySolutions.html" data-i18n="common.footer_sustainability">Industry Solutions</a></li>
+          <li><a href="career.html" data-i18n="common.footer_careers">Careers</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title" data-i18n="common.footer_contact_title">Contact</div>
         <ul class="footer-links">
-          <li><a href="#" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
-          <li><a href="#" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
-          <li><a href="#" data-i18n="common.footer_customer_support">Customer Support</a></li>
-          <li><a href="#" data-i18n="common.footer_partner_program">Partner Program</a></li>
-          <li><a href="#" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
+          <li><a href="getaquote.html" data-i18n="common.footer_get_a_quote">Get a Quote</a></li>
+          <li><a href="track.html" data-i18n="common.footer_track_shipment">Track Shipment</a></li>
+          <li><a href="contact.html" data-i18n="common.footer_customer_support">Customer Support</a></li>
+          <li><a href="knowlageHup.html" data-i18n="common.footer_knowledge_hub">Knowledge Hub</a></li>
           <li><a href="#" data-i18n="common.footer_legal_compliance">Legal &amp; Compliance</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy"><span data-i18n="common.footer_copyright">آ© 2025 CargoEx Global Logistics. All rights reserved.</span></div>
+      <div class="footer-copy"><span data-i18n="common.footer_copyright">آ© 2025 AA-SİRKO Global Logistics. All rights reserved.</span></div>
       <div class="footer-legal">
         <a href="#" data-i18n="common.footer_privacy_policy">Privacy Policy</a>
         <a href="#" data-i18n="common.footer_terms_of_service">Terms of Service</a>
